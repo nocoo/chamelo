@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      ci-run-id:
+        description: Successful main push CI run for the current main commit
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  deploy:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
+    uses: nocoo/base-ci/.github/workflows/deploy-worker.yml@ac635753a869cb85fad1f52aae4ccbd6119f3cae
+    with:
+      source-run-id: ${{ github.event_name == 'workflow_run' && format('{0}', github.event.workflow_run.id) || inputs.ci-run-id }}
+      runtime-version: '1.4.3'
+      node-version: '26.12.1'
+      install-policy: blocked
+      build-command: bun run build
+      wrangler-version: lockfile
+      environment: production
+      concurrency-group: deploy-chamelo-production
+      verify-command: bun run verify:production
+      verify-retries: 12
+      verify-retry-seconds: 10

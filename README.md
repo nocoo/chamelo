@@ -58,9 +58,9 @@ bun run check          # Lint, typecheck and coverage
 
 Husky runs `check` against a temporary index snapshot. Unit coverage currently measures `src/services/**/*.ts` and `src/viewmodels/**/*.ts`, not pure views, UI event wiring or editorial scripts. Browser compatibility and detailed interaction review are deferred until the owner accepts the first visual direction; no full accessibility or quality certification is claimed. Browser test configuration reserves `27061` and is not a completed E2E suite.
 
-## Deploy Later
+## Deploy Through CD
 
-`wrangler.jsonc` prepares a Cloudflare Worker static-assets deployment for **chamelo.hexly.ai**. `bun run deploy` builds and publishes it; run only with explicit publication approval. Credentials and source-generation tools are not part of the public bundle.
+The pinned `nocoo/base-ci` workflows run checks on `main` and deploy the exact successful main-push revision to Cloudflare Worker static assets at **chamelo.hexly.ai**. Configure the two Cloudflare deployment secrets in the GitHub `production` environment; see [release operations](docs/releasing.md). Publish only when authorized, through CD rather than a workstation deployment. Credentials and source-generation tools are not part of the public bundle.
 
 ## Layout
 

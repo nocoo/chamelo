@@ -21,6 +21,7 @@
     "check": "bun run lint && bun run typecheck && bun run test:coverage",
     "artwork:prepare": "bun scripts/prepare-artwork.ts",
     "release": "bun scripts/release.ts",
+    "verify:production": "bun scripts/verify-production.ts",
     "prepare": "husky",
     "deploy": "bun run build && wrangler deploy"
   },

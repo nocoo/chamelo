@@ -18,13 +18,38 @@ Under system0, X changes for public API breaks, schema migrations or authenticat
 
 Without an explicit increment, the script defaults to Z+1, promoting to Y+1 when **more than three days** have elapsed or the diff exceeds **500 added/deleted lines**. Its printed comparison baseline is the last commit that changed the root manifest's version. It does not claim to automatically detect every unmarked API, schema or authentication break. Explicit X.Y.Z must increase the current version.
 
+## CI And CD
+
+Both workflows pin `nocoo/base-ci` to immutable commit `ac635753a869cb85fad1f52aae4ccbd6119f3cae`. Update the pin only after inspecting its input and source-proof contracts. Bun matches `packageManager`; Node is pinned separately in both workflows. CI/CD use frozen installs with lifecycle scripts blocked; local installation still sets up Husky.
+
+- [CI](../.github/workflows/ci.yml) runs on main pushes, main pull requests and manual dispatch. Shared quality runs strict types, warning-free Biome, unit coverage, the production build, Gitleaks and OSV against `bun.lock`. Shared workflow lint checks YAML, action syntax and immutable references.
+- [Release](../.github/workflows/release.yml) is the CD workflow. It accepts only a successful same-repository main-push CI run. Shared source proof checks repository, workflow, branch, event, conclusion and exact SHA; it rechecks that the proven SHA is still main immediately before deployment. PR/fork evidence and unrelated green runs are not valid release inputs.
+- CD checks out that proven SHA, rebuilds it without production credentials, resolves the project-local Wrangler version from the frozen lockfile, and deploys the static assets defined in `wrangler.jsonc`. The production concurrency lock does not cancel an active deployment.
+- The GitHub environment is exactly `production`. Configure only `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` there. The reusable deployment job reads those environment secrets directly; the caller intentionally does not inherit all repository secrets. Use a deployment API token, not a workstation OAuth session. Azure image-generation credentials never enter GitHub Actions.
+
+Production origin: `https://chamelo.hexly.ai`. Deployment registers this Worker's custom domain; no database, remote test resource or migration is needed. The repository currently uses Wrangler, not a migrated `cloudflare.config.ts` project.
+
+`bun run verify:production` is a **read-only production check**, not part of local unit tests. It requires a completed `dist/` build and checks the deployed health JSON/version/headers, then compares the served HTML and JavaScript entry bytes with that build. Requests have 15-second timeouts. CD retries this check up to twelve times, ten seconds apart, to allow first-domain propagation. It does not prove every interaction or browser's rendering.
+
 ## Publish Only When Requested
 
-Follow the maintained `system0-github-versioning` skill. Inspect existing remote state, use normal hooks, push the intended release commit, create/push its `vX.Y.Z` tag, and publish the matching GitHub Release using the changelog. Do not move a published tag.
+Follow the maintained `system0-github-versioning` skill. Publishing authorization covers the intended release, not unrelated pushes, resource changes or monitoring onboarding.
 
-The Cloudflare static-assets deployment is prepared in `wrangler.jsonc`, with production origin `https://chamelo.hexly.ai`. `bun run deploy` builds and deploys; it requires separate production authorization. There is currently no configured deployment workflow or completed production verification. Do not infer deployment from a successful local build.
+1. Prepare and inspect the local release commit with the commands above. Confirm the changelog, manifest, lockfile and clean working tree.
+2. Push the intended commit to `origin/main` through normal hooks. **A successful main-push CI run automatically triggers production CD.** Do not push unfinished work assuming it is deployment-free.
+3. Inspect CI for that exact commit and watch its result. Inspect the resulting Release run's source-proof summary and deployment result, not merely a green run with a similar name. Do not deploy from the workstation with `bun run deploy`; release delivery goes through CD.
+4. Create and push the immutable `vX.Y.Z` Git tag at the release commit and create the matching GitHub Release using that version's changelog section. Inspect existing remote tags/releases before retrying; never move a published tag. Tag/Release creation does not itself deploy.
+5. Confirm the deployed version and exact-revision CI/CD evidence. Arrange a five-minute follow-up while anything is pending. Report a failed or pending stage honestly; a GitHub Release page is not deployment proof.
 
-After authorized publication, bind CI results to the exact commit/tag and verify the deployed `/api/live` version, JSON content type and `Cache-Control: no-store`. Arrange a five-minute follow-up while CI/deployment is pending. Public status/Kuma onboarding is a separate authorized task, not a side effect of implementing the endpoint.
+For a failed deployment after fixing an external prerequisite, the manual Release entrypoint takes the successful **current main push** CI run ID:
+
+```sh
+gh workflow run release.yml -f ci-run-id=RUN_ID
+```
+
+Replace `RUN_ID` with inspected evidence, not the latest unrelated green run. A stale SHA fails source proof and needs new current-main CI, not disabled safeguards. Do not bypass checks or replace a frozen install to get a release through.
+
+Public status/Uptime Kuma onboarding is a separate authorized task. CD's production smoke check is not continuous monitoring.
 
 ## Health Scope
 

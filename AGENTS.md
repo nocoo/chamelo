@@ -44,7 +44,7 @@ bun run release -- --dry-run
 - Keep normal dev servers in the current Herdr space's `dev server` tab.
 - Caddy mapping is maintained in `/opt/homebrew/etc/Caddyfile` and `../workflow/caddy/Caddyfile`. Existing wildcard DNS and certificates cover the local hostname; no certificate regeneration is required.
 - `nmem` was unavailable during initial allocation. Ports were checked against both Caddyfiles and bind availability; memory registration is pending.
-- Production: `chamelo.hexly.ai`, future Cloudflare Worker static assets. `wrangler.jsonc` is prepared; no deployment or DNS mutation is authorized implicitly.
+- Production: `chamelo.hexly.ai`, Cloudflare Worker static assets. Main-push CI success triggers CD through the pinned `base-ci` workflows; do not push unfinished work assuming it is deployment-free. Publishing requires authorization; use CD rather than a local deployment.
 - `package.json` is the sole authoritative version. Stage only explicit task paths and make passing atomic commits; do not push unless asked.
 - `/api/live` is a versioned static-build liveness artifact, not an Azure or database probe. See [versioning and release](docs/releasing.md); the release script prepares a local commit only.
 

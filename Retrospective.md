@@ -13,3 +13,7 @@ Biome 2.5.15 migrated `recommended: true` to `preset: "none"`, unexpectedly disa
 ## 2026-10-24 - Size the actual glass-filter surface
 
 Making the source image absolutely positioned during the viewport-fit adjustment collapsed the liquid-glass library's internal filtered wrapper to zero height. The first visual capture showed a blank image even though the page dimensions were correct. The image now stays in flow and its filtered wrapper receives the available height. For third-party visual effects, inspect the actual DOM surface and image rendering, not only outer container dimensions.
+
+## 2026-10-24 - Avoid zsh's reserved path variable
+
+A read-only workflow download loop used `path` as its iterator. In zsh, that variable is tied to `PATH`, so assigning a filename removed command lookup and stopped the loop before any workflow files were downloaded. The loop now uses `file`. Use non-reserved iterator names in shell commands and keep dependent commands fail-fast; no deployment or credential change occurred.
