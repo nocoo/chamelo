@@ -5,6 +5,9 @@
   "type": "module",
   "description": "Chinese cultural imagery, curated into considered website color systems.",
   "packageManager": "bun@1.4.3",
+  "overrides": {
+    "undici": "7.30.1"
+  },
   "engines": {
     "node": ">=22.12.0"
   },
