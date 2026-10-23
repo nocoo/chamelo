@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/dunhuang-huacai/original.png",
+  "sourceSha256": "089ca4f5bf7a5ebba41681d763c6090b8378f579c15aa106f764df1b2ea5f82b",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#725F44",
+      "rgb": [
+        114,
+        95,
+        68
+      ]
+    },
+    {
+      "hex": "#23302E",
+      "rgb": [
+        35,
+        48,
+        46
+      ]
+    },
+    {
+      "hex": "#E7C8A0",
+      "rgb": [
+        231,
+        200,
+        160
+      ]
+    },
+    {
+      "hex": "#D1AD83",
+      "rgb": [
+        209,
+        173,
+        131
+      ]
+    },
+    {
+      "hex": "#B99E7D",
+      "rgb": [
+        185,
+        158,
+        125
+      ]
+    },
+    {
+      "hex": "#AF8B62",
+      "rgb": [
+        175,
+        139,
+        98
+      ]
+    },
+    {
+      "hex": "#53301D",
+      "rgb": [
+        83,
+        48,
+        29
+      ]
+    },
+    {
+      "hex": "#CBB29C",
+      "rgb": [
+        203,
+        178,
+        156
+      ]
+    },
+    {
+      "hex": "#938C69",
+      "rgb": [
+        147,
+        140,
+        105
+      ]
+    },
+    {
+      "hex": "#E7BC74",
+      "rgb": [
+        231,
+        188,
+        116
+      ]
+    },
+    {
+      "hex": "#3C6C4C",
+      "rgb": [
+        60,
+        108,
+        76
+      ]
+    }
+  ]
+}

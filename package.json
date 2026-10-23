@@ -1,0 +1,53 @@
+{
+  "name": "chamelo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Chinese cultural imagery, curated into considered website color systems.",
+  "packageManager": "bun@1.4.3",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "biome check --error-on-warnings .",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "check": "bun run lint && bun run typecheck && bun run test:coverage",
+    "artwork:prepare": "node scripts/prepare-artwork.ts",
+    "prepare": "husky",
+    "deploy": "bun run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "5.3.0",
+    "@fontsource-variable/noto-serif-sc": "5.3.1",
+    "culori": "4.0.2",
+    "lucide-react": "1.58.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "liquid-glass-web-react": "0.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@playwright/test": "1.64.1",
+    "@types/culori": "4.0.1",
+    "@types/node": "26.6.5",
+    "@types/quantize": "1.0.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "@vitest/coverage-v8": "5.0.5",
+    "husky": "9.1.7",
+    "quantize": "1.0.2",
+    "sharp": "0.35.5",
+    "typescript": "7.0.2",
+    "vite": "8.3.4",
+    "vitest": "5.0.5",
+    "wrangler": "4.151.1"
+  }
+}

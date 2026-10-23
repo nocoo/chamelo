@@ -1,0 +1,13 @@
+set -eu
+
+root="$(git rev-parse --show-toplevel)"
+snapshot="$(mktemp -d "${TMPDIR:-/tmp}/chamelo-index.XXXXXX")"
+trap 'rm -rf "$snapshot"' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+
+git checkout-index --all --prefix="$snapshot/"
+git init --quiet "$snapshot"
+ln -s "$root/node_modules" "$snapshot/node_modules"
+cd "$snapshot"
+node --input-type=module -e 'import { spawnSync } from "node:child_process"; const result = spawnSync("bun", ["run", "check"], { stdio: "inherit", timeout: 25000 }); process.exit(result.status ?? 1);'

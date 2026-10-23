@@ -1,0 +1,76 @@
+# Chamelo
+
+A considered colour atlas rooted in Chinese culture. Original AI artwork becomes a curated palette, a semantic website theme, and a self-contained brief for a coding agent.
+
+The first collection, **Dunhuang Splendour**, takes its mineral greens, warm sandstone and restrained cinnabar from an original GPT Image 2.5 Sunburst artwork. The image is an artistic interpretation, not a record of a historical mural.
+
+## Develop
+
+Requires Node.js 22.12+ and Bun 1.4.3.
+
+```sh
+bun install
+bun run dev
+```
+
+Open **https://chamelo.dev.hexly.ai**. Vite binds to `127.0.0.1:7061`; Caddy provides local HTTPS using the existing wildcard certificate. The Herdr `dev server` tab keeps the development process visible. No production deployment is performed during initial design review.
+
+On the owner's restricted network, install with the approved temporary registry:
+
+```sh
+BUN_CONFIG_REGISTRY=https://packagefeedproxy.microsoft.io/npm/ bun install
+```
+
+Do not persist mirror tarball URLs in `bun.lock`.
+
+## What Works
+
+- Cultural categories and motif/tag search, including honest empty states.
+- HEX, RGB, HSL and OKLCH formats with individual colour copying.
+- Twelve semantic theme variables, colour-pair contrast records, and CSS export.
+- One-click agent prompt export including the motif, every colour, semantic roles, proportions and implementation constraints.
+- A working miniature website using the exact exported theme, plus an expanded preview.
+- Original artwork viewing/download and an isolated liquid-glass lens using `liquid-glass-web-react`.
+- Responsive layouts and native modal dialogs; current Safari and Chrome are the browser targets.
+
+## Content Workflow
+
+1. Write an original cultural concept and image prompt under `content/<id>/`.
+2. Generate the source image with the configured `agi-image-generation` skill using `gpt-image-2.5-sunburst`. Keep the original PNG unchanged. `content/dunhuang-huacai/prompt.txt` records this edition's exact prompt.
+3. Run `bun run artwork:prepare` to create the first edition's WebP delivery asset and reproducible colour evidence from its original PNG. This command makes **no API calls**.
+4. Curate swatches and semantic roles in `src/data/palettes.ts`. Raw extraction is evidence, not the finished theme: adjust lightness, foreground contrast, usage hierarchy and proportions deliberately.
+
+`extraction.json` is reproducible with the preparation script. `exploration.json` preserves supplementary first-edition regional and chromatic samples; the original exploratory hue thresholds were not retained, so those samples are archival rather than a reproducibility claim.
+
+Azure credentials belong only in the ignored root `.env`, using the names in `.env.example`. Never prefix them with `VITE_`, expose them to the frontend, print them or commit them. Image generation is an internal editorial workflow, not a public client feature.
+
+## Commands
+
+```sh
+bun run build          # Strict typecheck and production Vite build
+bun run lint           # Biome checks; warnings fail
+bun run format         # Explicit formatting and safe fixes
+bun run typecheck      # Strict TypeScript checks
+bun run test           # Pure domain/export/filter tests
+bun run test:coverage  # Four coverage metrics, each at least 95%
+bun run check          # Lint, typecheck and coverage
+```
+
+Husky runs `check` against a temporary index snapshot. Unit coverage currently measures `src/services/**/*.ts` and `src/viewmodels/**/*.ts`, not pure views, UI event wiring or editorial scripts. Browser compatibility and detailed interaction review are deferred until the owner accepts the first visual direction; no full accessibility or quality certification is claimed. Browser test configuration reserves `27061` and is not a completed E2E suite.
+
+## Deploy Later
+
+`wrangler.jsonc` prepares a Cloudflare Worker static-assets deployment for **chamelo.hexly.ai**. `bun run deploy` builds and publishes it; run only with explicit publication approval. Credentials and source-generation tools are not part of the public bundle.
+
+## Layout
+
+- `src/models/`: shared palette and theme contracts.
+- `src/data/`: curated collection; the content source of truth.
+- `src/services/`: colour calculations and export builders using Culori.
+- `src/viewmodels/`: pure filtering logic.
+- `src/views/`: React rendering and presentation state.
+- `src/styles/`: shared design tokens and responsive editorial layout.
+- `content/`: generation prompts and extraction evidence.
+- `public/artworks/`: preserved original and web delivery image.
+
+All direct dependencies are pinned to registry stable releases selected on 2026-10-24. `package.json` is the version source of truth.
