@@ -13,7 +13,7 @@ bun install
 bun run dev
 ```
 
-Open **https://chamelo.dev.hexly.ai**. Vite binds to `127.0.0.1:7061`; Caddy provides local HTTPS using the existing wildcard certificate. The Herdr `dev server` tab keeps the development process visible. No production deployment is performed during initial design review.
+Open **https://chamelo.dev.hexly.ai**. Vite binds to `127.0.0.1:7061`; Caddy provides local HTTPS using the existing wildcard certificate. The Herdr `dev server` tab keeps the development process visible. Production is `https://chamelo.hexly.ai`; every successful `main` CI run deploys through CD.
 
 On the owner's restricted network, install with the approved temporary registry:
 
