@@ -7,6 +7,7 @@ export const palettes: Palette[] = [
     name: '敦煌华彩',
     english: 'Dunhuang, in colour',
     category: 'murals',
+    status: 'published',
     description: '一缕石青，半壁流金。让千年的风，吹进当下的界面。',
     story:
       '灵感来自敦煌壁画的矿物颜料、飞天衣带与暮光中的砂岩。以温润的砂白留出呼吸，用沉静的石青建立秩序，再以少量丹砂唤起生命力。原图为 AI 创作的当代意象，并非真实石窟或历史壁画的记录。',

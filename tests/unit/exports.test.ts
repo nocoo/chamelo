@@ -9,6 +9,7 @@ const palette: Palette = {
   name: '暮色入壁',
   english: 'Dusk on the Mural',
   category: 'murals',
+  status: 'published',
   description: '晚霞映照古老石壁。',
   story: '飞天衣袂掠过丹霞，余晖停在沉静的石窟之间。',
   artDirection: 'A Dunhuang-inspired interpretation of mineral pigments and evening light.',

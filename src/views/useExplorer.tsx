@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { palettes } from '../data/palettes';
+import { collection } from '../data/collection';
 import type { Category, ColorFormat, Palette } from '../models/palette';
-import { activePalette, adjacentPalette, selectPalettes } from '../viewmodels/explorer';
+import { activeEntry, adjacentEntry, selectEntries, themeEntry } from '../viewmodels/explorer';
 
 export type ModalState =
   | { kind: 'artwork' | 'prompt' | 'tokens' | 'preview'; palette: Palette }
@@ -16,8 +16,8 @@ export function useExplorer() {
   const [modal, setModal] = useState<ModalState>(null);
   const [toast, setToast] = useState<{ text: string; error: boolean } | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const visible = selectPalettes(palettes, category, query);
-  const active = activePalette(visible, selectedId);
+  const visible = selectEntries(collection, category, query);
+  const active = activeEntry(visible, selectedId);
 
   useEffect(
     () => () => {
@@ -50,10 +50,9 @@ export function useExplorer() {
     copy,
     visible,
     active,
-    total: palettes.length,
-    theme: active ?? activePalette(palettes, selectedId),
-    activeIndex: visible.findIndex((palette) => palette.id === active?.id),
-    stepPalette: (step: -1 | 1) =>
-      setSelectedId(adjacentPalette(visible, active?.id ?? null, step)),
+    total: collection.length,
+    theme: themeEntry(collection, active),
+    activeIndex: visible.findIndex((entry) => entry.id === active?.id),
+    stepPalette: (step: -1 | 1) => setSelectedId(adjacentEntry(visible, active?.id ?? null, step)),
   };
 }

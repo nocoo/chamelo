@@ -87,7 +87,8 @@ export function PaletteModal({
               </div>
             </div>
             <p className="guide-disclosure">
-              首辑：敦煌华彩。更多意象将逐步策展加入。所有影像均为 AI
+              首辑：敦煌华彩。另有 77
+              个意象已收录待策展，先定传统色名方向，再生成原图与语义配色。所有影像均为 AI
               创作的当代诠释，不作历史文物记录。
             </p>
           </div>

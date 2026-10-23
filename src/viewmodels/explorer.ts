@@ -1,29 +1,44 @@
-import type { Category, Palette } from '../models/palette';
+import type { Category, CollectionEntry, Palette } from '../models/palette';
 
-export function selectPalettes(palettes: Palette[], category: Category, query: string): Palette[] {
+export function selectEntries(
+  entries: CollectionEntry[],
+  category: Category,
+  query: string,
+): CollectionEntry[] {
   const normalized = query.trim().toLocaleLowerCase();
-  return palettes.filter((palette) => {
-    const inCategory = category === 'all' || palette.category === category;
-    const searchable = [palette.name, palette.english, palette.description, ...palette.tags]
+  return entries.filter((entry) => {
+    const inCategory = category === 'all' || entry.category === category;
+    const searchable = [entry.name, entry.english, entry.description, ...entry.tags]
       .join(' ')
       .toLocaleLowerCase();
     return inCategory && searchable.includes(normalized);
   });
 }
 
-export function activePalette(palettes: Palette[], selectedId: string | null): Palette | undefined {
-  return palettes.find((palette) => palette.id === selectedId) ?? palettes[0];
+export function activeEntry(
+  entries: CollectionEntry[],
+  selectedId: string | null,
+): CollectionEntry | undefined {
+  return entries.find((entry) => entry.id === selectedId) ?? entries[0];
 }
 
-export function adjacentPalette(
-  palettes: Palette[],
+export function adjacentEntry(
+  entries: CollectionEntry[],
   selectedId: string | null,
   step: -1 | 1,
 ): string | null {
-  if (!palettes.length) return null;
+  if (!entries.length) return null;
   const index = Math.max(
     0,
-    palettes.findIndex((palette) => palette.id === selectedId),
+    entries.findIndex((entry) => entry.id === selectedId),
   );
-  return palettes[(index + step + palettes.length) % palettes.length]?.id ?? null;
+  return entries[(index + step + entries.length) % entries.length]?.id ?? null;
+}
+
+export function themeEntry(
+  entries: CollectionEntry[],
+  active: CollectionEntry | undefined,
+): Palette | undefined {
+  if (active?.status === 'published') return active;
+  return entries.find((entry): entry is Palette => entry.status === 'published');
 }

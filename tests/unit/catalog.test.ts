@@ -1,8 +1,16 @@
 import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { collection } from '../../src/data/collection';
+import { draftPalettes } from '../../src/data/draft-palettes';
 import { palettes } from '../../src/data/palettes';
-import { tokenLabels } from '../../src/models/palette';
+import { traditionalColours } from '../../src/data/traditional-colours';
+import { categories, tokenLabels } from '../../src/models/palette';
 import { themeContrastChecks } from '../../src/services/colors';
+
+const categoryIds: string[] = categories
+  .map((category) => category.id)
+  .filter((id) => id !== 'all');
+const vocabulary = new Set<string>(traditionalColours);
 
 describe('published palette contract', () => {
   it('keeps identifiers unique and every entry complete', () => {
@@ -10,6 +18,7 @@ describe('published palette contract', () => {
     expect(new Set(palettes.map((palette) => palette.id)).size).toBe(palettes.length);
     expect(new Set(palettes.map((palette) => palette.number)).size).toBe(palettes.length);
     for (const palette of palettes) {
+      expect(palette.status).toBe('published');
       expect(palette.id).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
       expect(palette.swatches).toHaveLength(6);
       expect(Object.keys(palette.theme).sort()).toEqual(Object.keys(tokenLabels).sort());
@@ -22,5 +31,41 @@ describe('published palette contract', () => {
       expect(existsSync(`content/${palette.id}/prompt.txt`)).toBe(true);
       expect(existsSync(`content/${palette.id}/extraction.json`)).toBe(true);
     }
+  });
+});
+
+describe('draft concept contract', () => {
+  it('keeps every concept searchable, categorised and free of colour values', () => {
+    expect(draftPalettes.length).toBeGreaterThanOrEqual(50);
+    for (const draft of draftPalettes) {
+      expect(draft.status).toBe('todo');
+      expect(draft.id).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+      expect(draft.name.trim().length).toBeGreaterThan(0);
+      expect(draft.english.trim().length).toBeGreaterThan(0);
+      expect(draft.description.trim().length).toBeGreaterThan(0);
+      expect(draft.tags.length).toBeGreaterThan(0);
+      expect(categoryIds).toContain(draft.category);
+      expect(JSON.stringify(draft)).not.toContain('#');
+    }
+  });
+
+  it('plans every colour role with a traditional Chinese colour name', () => {
+    for (const draft of draftPalettes) {
+      for (const name of Object.values(draft.direction)) {
+        expect(vocabulary.has(name)).toBe(true);
+      }
+    }
+  });
+});
+
+describe('collection contract', () => {
+  it('lists published palettes first and numbers every entry once', () => {
+    expect(collection.slice(0, palettes.length)).toEqual(palettes);
+    expect(collection).toHaveLength(palettes.length + draftPalettes.length);
+    expect(new Set(collection.map((entry) => entry.id)).size).toBe(collection.length);
+    expect(new Set(collection.map((entry) => entry.number)).size).toBe(collection.length);
+    collection.forEach((entry, index) => {
+      expect(entry.number).toBe(String(index + 1).padStart(3, '0'));
+    });
   });
 });

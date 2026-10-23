@@ -5,9 +5,9 @@ A Chinese-cultural colour atlas. Codename: Chameleon. The first edition is Dunhu
 ## Product Invariants
 
 - Generate original cultural imagery, extract candidate colours, then deliberately curate a usable website theme. Do not present raw pixel extraction as professional colour pairing.
-- Every palette includes a source image, six curated swatches, twelve semantic roles, recommended proportions, a website preview, and complete CSS/agent-prompt export.
-- The explorer shows one selected palette at a time. Selection drives the site's semantic colours, atmosphere and exports; swatch clicks only copy. Respect reduced motion and never publish testing palettes as generated content.
-- `src/data/palettes.ts` is the curated content source. Models and pure services stay separate from React views.
+- Every published palette includes a source image, six curated swatches, twelve semantic roles, recommended proportions, a website preview, and complete CSS/agent-prompt export. Draft concepts are TODO placeholders: no artwork, no hex values, no exports.
+- The explorer shows one selected entry at a time. Selection drives the site's semantic colours, atmosphere and exports; swatch clicks only copy. Respect reduced motion and never publish testing palettes or incomplete concepts as generated content.
+- `src/data/palettes.ts` holds published palettes; `src/data/draft-palettes.ts` holds TODO concepts whose only colour data is a traditional-colour direction. Models and pure services stay separate from React views.
 - Current Safari and Chrome, including iPhone Safari, are primary targets. Native responsive layouts and dialogs must not depend on hover. Liquid refraction affects artwork only, never essential text or controls.
 - Visual direction: contemporary editorial typography, mineral hues, restrained glass and meaningful density. No inherited UI template or component library is required.
 - Desktop viewports at least 1024px wide and 650px tall use a full-width, viewport-height composition. Smaller or zoomed viewports scroll naturally. Keep essential controls visible instead of masking document overflow.

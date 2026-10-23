@@ -1,5 +1,6 @@
+import { draftPalettes } from '../../src/data/draft-palettes';
 import { palettes } from '../../src/data/palettes';
-import type { Palette } from '../../src/models/palette';
+import type { Palette, PaletteDraft } from '../../src/models/palette';
 
 const source = palettes[0];
 if (!source) throw new Error('The initial curated palette is missing.');
@@ -27,4 +28,13 @@ export const coolFixture: Palette = {
     'on-accent': '#FFFAF2',
     focus: '#234A5E',
   },
+};
+
+const sourceDraft = draftPalettes[0];
+if (!sourceDraft) throw new Error('The draft concept collection is missing.');
+
+export const draftFixture: PaletteDraft = {
+  ...sourceDraft,
+  id: 'fixture-draft',
+  name: 'Draft fixture',
 };

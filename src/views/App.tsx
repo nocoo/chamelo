@@ -13,6 +13,7 @@ import {
 import { categories } from '../models/palette';
 import { siteThemeVariables } from '../services/siteTheme';
 import { Atmosphere } from './Atmosphere';
+import { PaletteDraftFeature } from './PaletteDraftFeature';
 import { PaletteFeature } from './PaletteFeature';
 import { PaletteModal } from './PaletteModal';
 import { useExplorer } from './useExplorer';
@@ -152,7 +153,7 @@ export function App() {
                 </label>
               </div>
             </div>
-            {explorer.active ? (
+            {explorer.active?.status === 'published' && (
               <PaletteFeature
                 key={explorer.active.id}
                 palette={explorer.active}
@@ -161,7 +162,11 @@ export function App() {
                 onCopy={explorer.copy}
                 onModal={explorer.setModal}
               />
-            ) : (
+            )}
+            {explorer.active?.status === 'todo' && (
+              <PaletteDraftFeature key={explorer.active.id} draft={explorer.active} />
+            )}
+            {!explorer.active && (
               <div className="empty-state">
                 <Sparkles size={32} strokeWidth={1.2} />
                 <span className="eyebrow">ANOTHER STORY IS TAKING SHAPE</span>
@@ -183,7 +188,7 @@ export function App() {
                   <ArrowRight size={15} />
                 </button>
               </div>
-            )}
+            )}{' '}
           </section>
 
           <section className="method-note" id="method">
