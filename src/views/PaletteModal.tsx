@@ -98,19 +98,22 @@ export function PaletteModal({
               className="modal-artwork"
               src={state.palette.artwork.original}
               alt={state.palette.artwork.alt}
-              width={1536}
-              height={1024}
+              width={state.palette.artwork.width}
+              height={state.palette.artwork.height}
             />
             <div className="artwork-modal-caption">
               <div>
                 <h3>{state.palette.name}</h3>
                 <p>{state.palette.story}</p>
-                <small>{state.palette.provenance.model} · 1536 × 1024 · AI 意象创作</small>
+                <small>
+                  {state.palette.provenance.model} · {state.palette.artwork.width} ×{' '}
+                  {state.palette.artwork.height} · AI 意象创作
+                </small>
               </div>
               <a
                 className="button button-secondary"
                 href={state.palette.artwork.original}
-                download="chamelo-dunhuang-huacai.png"
+                download={`chamelo-${state.palette.id}.png`}
               >
                 <ArrowDownToLine size={16} />
                 下载原图
@@ -194,7 +197,8 @@ export function PaletteModal({
         {state.kind === 'preview' && (
           <>
             <p className="modal-intro">
-              示例品牌「山居」使用敦煌华彩的完整语义色。试试主按钮，感受配色如何组织内容和交互。
+              示例品牌「山居」使用「{state.palette.name}
+              」的完整语义色。试试主按钮，感受配色如何组织内容和交互。
             </p>
             <SitePreview palette={state.palette} expanded />
           </>

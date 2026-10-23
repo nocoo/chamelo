@@ -46,6 +46,7 @@ export interface Palette {
   category: Exclude<Category, 'all'>;
   description: string;
   story: string;
+  artDirection: string;
   tags: string[];
   artwork: {
     src: string;
@@ -53,6 +54,7 @@ export interface Palette {
     alt: string;
     width: number;
     height: number;
+    caption: string;
   };
   provenance: {
     model: string;

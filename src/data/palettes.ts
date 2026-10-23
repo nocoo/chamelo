@@ -10,6 +10,8 @@ export const palettes: Palette[] = [
     description: '一缕石青，半壁流金。让千年的风，吹进当下的界面。',
     story:
       '灵感来自敦煌壁画的矿物颜料、飞天衣带与暮光中的砂岩。以温润的砂白留出呼吸，用沉静的石青建立秩序，再以少量丹砂唤起生命力。原图为 AI 创作的当代意象，并非真实石窟或历史壁画的记录。',
+    artDirection:
+      'Create a contemporary Dunhuang-inspired visual language: mineral-pigment color, restrained mural-like ornament, tactile references to aged plaster, silk, carved stone, and carefully controlled metallic accents. Keep ornament deliberate and legible; let the supplied story and colors determine the motif rather than stock cultural clichés.',
     tags: ['敦煌', '壁画', '矿物色', '温润', '石青', '朱砂'],
     artwork: {
       src: '/artworks/dunhuang-huacai/artwork.webp',
@@ -17,6 +19,7 @@ export const palettes: Palette[] = [
       alt: '敦煌意象：石青与朱砂色的飞天衣带掠过斑驳石壁，远方沙丘沐浴在金色暮光中。',
       width: 1536,
       height: 1024,
+      caption: '一缕石青，半壁流金',
     },
     provenance: {
       model: 'gpt-image-2.5-sunburst',

@@ -57,11 +57,7 @@ export function SitePreview({
         </div>
         <div className="preview-visual">
           <div className="preview-arch">
-            <img
-              src={palette.artwork.src}
-              alt="与山居网站配色呼应的敦煌矿物色意象"
-              loading="lazy"
-            />
+            <img src={palette.artwork.src} alt={palette.artwork.alt} loading="lazy" />
           </div>
           <span className="preview-seal" aria-hidden="true">
             山<br />居

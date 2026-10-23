@@ -12,7 +12,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { useState } from 'react';
-import { type ColorFormat, colorFormats, type Palette } from '../models/palette';
+import { type ColorFormat, categories, colorFormats, type Palette } from '../models/palette';
 import { foregroundFor, formatColor, themeContrastChecks } from '../services/colors';
 import { createAgentPrompt, createCss } from '../services/exports';
 import { SitePreview } from './SitePreview';
@@ -45,7 +45,9 @@ export function PaletteFeature({
             <h2>{palette.name}</h2>
             <p>{palette.english}</p>
           </div>
-          <span className="collection-tag">壁画与石窟</span>
+          <span className="collection-tag">
+            {categories.find((category) => category.id === palette.category)?.label}
+          </span>
         </div>
         <div className="feature-heading-note">
           <span className="status-dot" />
@@ -96,18 +98,20 @@ export function PaletteFeature({
                 色
               </span>
               <div>
-                <span>一缕石青，半壁流金</span>
-                <small>DUNHUANG · AN IMAGINED LANDSCAPE</small>
+                <span>{palette.artwork.caption}</span>
+                <small>{palette.english.toUpperCase()}</small>
               </div>
             </div>
-            <div className="image-corner-label">AI ORIGINAL · 1536 × 1024</div>
+            <div className="image-corner-label">
+              AI ORIGINAL · {palette.artwork.width} × {palette.artwork.height}
+            </div>
           </div>
           <div className="artwork-footnote">
             <p>{palette.description}</p>
             <a
               href={palette.artwork.original}
-              download="chamelo-dunhuang-huacai.png"
-              aria-label="下载敦煌华彩原始 PNG"
+              download={`chamelo-${palette.id}.png`}
+              aria-label={`下载${palette.name}原始 PNG`}
             >
               <ArrowDownToLine size={16} />
               <span>原图</span>

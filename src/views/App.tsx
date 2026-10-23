@@ -3,12 +3,16 @@ import {
   ArrowUpRight,
   BookOpen,
   Check,
+  ChevronLeft,
+  ChevronRight,
   Search,
   Sparkles,
   TriangleAlert,
   X,
 } from 'lucide-react';
 import { categories } from '../models/palette';
+import { siteThemeVariables } from '../services/siteTheme';
+import { Atmosphere } from './Atmosphere';
 import { PaletteFeature } from './PaletteFeature';
 import { PaletteModal } from './PaletteModal';
 import { useExplorer } from './useExplorer';
@@ -17,11 +21,15 @@ export function App() {
   const explorer = useExplorer();
 
   return (
-    <>
+    <div
+      className="theme-root"
+      style={siteThemeVariables(explorer.theme)}
+      data-palette={explorer.theme?.id}
+    >
       <a className="skip-link" href="#collection">
         跳转到色板
       </a>
-      <div className="ambient-backdrop" aria-hidden="true" />
+      <Atmosphere source={explorer.theme?.artwork.src} />
       <div className="page-shell">
         <header className="site-header">
           <a className="brand" href="/" aria-label="Chamelo 变色龙首页">
@@ -71,12 +79,9 @@ export function App() {
             </div>
             <div className="intro-aside">
               <div className="mini-spectrum" aria-hidden="true">
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
+                {explorer.theme?.swatches.map((swatch) => (
+                  <i key={swatch.id} style={{ background: swatch.hex }} />
+                ))}
               </div>
               <p>
                 取色于千年之间，
@@ -98,36 +103,64 @@ export function App() {
                     onClick={() => explorer.setCategory(category.id)}
                   >
                     {category.label}
-                    {category.id === 'all' && <span>01</span>}
+                    {category.id === 'all' && (
+                      <span>{String(explorer.total).padStart(2, '0')}</span>
+                    )}
                   </button>
                 ))}
               </fieldset>
-              <label className="search-field">
-                <Search size={15} aria-hidden="true" />
-                <input
-                  value={explorer.query}
-                  onChange={(event) => explorer.setQuery(event.target.value)}
-                  placeholder="寻找一种意境…"
-                  aria-label="搜索色板"
-                />
-                {explorer.query && (
-                  <button type="button" onClick={() => explorer.setQuery('')} aria-label="清空搜索">
-                    <X size={14} />
-                  </button>
+              <div className="collection-tools">
+                {explorer.visible.length > 1 && (
+                  <nav className="palette-pagination" aria-label="切换意象色板">
+                    <button
+                      type="button"
+                      onClick={() => explorer.stepPalette(-1)}
+                      aria-label="上一套色板"
+                    >
+                      <ChevronLeft size={16} />
+                    </button>
+                    <span aria-live="polite">
+                      {String(explorer.activeIndex + 1).padStart(2, '0')}
+                      <span> / {String(explorer.visible.length).padStart(2, '0')}</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => explorer.stepPalette(1)}
+                      aria-label="下一套色板"
+                    >
+                      <ChevronRight size={16} />
+                    </button>
+                  </nav>
                 )}
-              </label>
+                <label className="search-field">
+                  <Search size={15} aria-hidden="true" />
+                  <input
+                    value={explorer.query}
+                    onChange={(event) => explorer.setQuery(event.target.value)}
+                    placeholder="寻找一种意境…"
+                    aria-label="搜索色板"
+                  />
+                  {explorer.query && (
+                    <button
+                      type="button"
+                      onClick={() => explorer.setQuery('')}
+                      aria-label="清空搜索"
+                    >
+                      <X size={14} />
+                    </button>
+                  )}
+                </label>
+              </div>
             </div>
-            {explorer.visible.length > 0 ? (
-              explorer.visible.map((palette) => (
-                <PaletteFeature
-                  key={palette.id}
-                  palette={palette}
-                  format={explorer.format}
-                  onFormat={explorer.setFormat}
-                  onCopy={explorer.copy}
-                  onModal={explorer.setModal}
-                />
-              ))
+            {explorer.active ? (
+              <PaletteFeature
+                key={explorer.active.id}
+                palette={explorer.active}
+                format={explorer.format}
+                onFormat={explorer.setFormat}
+                onCopy={explorer.copy}
+                onModal={explorer.setModal}
+              />
             ) : (
               <div className="empty-state">
                 <Sparkles size={32} strokeWidth={1.2} />
@@ -197,6 +230,6 @@ export function App() {
         {explorer.toast?.error ? <TriangleAlert size={17} /> : <Check size={17} />}
         <span>{explorer.toast?.text}</span>
       </div>
-    </>
+    </div>
   );
 }

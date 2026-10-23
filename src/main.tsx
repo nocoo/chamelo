@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client';
 import { App } from './views/App';
 import './styles/tokens.css';
 import './styles/app.css';
+import './styles/theme.css';
 import './styles/desktop.css';
 
 const root = document.getElementById('root');

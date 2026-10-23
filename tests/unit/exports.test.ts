@@ -11,6 +11,7 @@ const palette: Palette = {
   category: 'murals',
   description: '晚霞映照古老石壁。',
   story: '飞天衣袂掠过丹霞，余晖停在沉静的石窟之间。',
+  artDirection: 'A Dunhuang-inspired interpretation of mineral pigments and evening light.',
   tags: ['敦煌', '壁画', '暮色'],
   artwork: {
     src: '/artworks/unavailable-dunhuang.webp',
@@ -18,6 +19,7 @@ const palette: Palette = {
     alt: '一幅描绘暮色石窟的 AI 创作示意图',
     width: 1200,
     height: 800,
+    caption: '暮色入壁',
   },
   provenance: {
     model: 'illustration-model',
@@ -127,7 +129,7 @@ describe('palette exports', () => {
       );
     }
 
-    expect(prompt).toContain('Dunhuang-inspired');
+    expect(prompt).toContain(palette.artDirection);
     expect(prompt).toContain('Noto Serif SC');
     expect(prompt).toContain('Manrope');
     expect(prompt).toContain('mobile-first');
@@ -139,5 +141,14 @@ describe('palette exports', () => {
     expect(prompt).toContain('AI interpretation, not historical documentation');
     expect(prompt).toContain('Do not invent an unseen image URL');
     expect(prompt).not.toContain(palette.artwork.src);
+  });
+
+  it("uses each motif's own direction instead of a fixed Dunhuang prompt", () => {
+    const prompt = createAgentPrompt({
+      ...palette,
+      artDirection: 'Quiet celadon glaze and negative space.',
+    });
+    expect(prompt).toContain('Quiet celadon glaze and negative space.');
+    expect(prompt).not.toContain('Dunhuang-inspired');
   });
 });

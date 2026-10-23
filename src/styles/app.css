@@ -65,7 +65,7 @@ svg {
 }
 ::selection {
   color: var(--ink-deep);
-  background: #d6dcbf;
+  background: var(--control-active);
 }
 .skip-link {
   position: fixed;
@@ -79,17 +79,6 @@ svg {
 }
 .skip-link:focus {
   top: 16px;
-}
-.ambient-backdrop {
-  position: fixed;
-  z-index: -1;
-  inset: -100px;
-  background:
-    linear-gradient(180deg, #f4f2ec 5%, #f4f2ec55 48%, #f4f2ec 98%),
-    url("/artworks/dunhuang-huacai/artwork.webp") center 42% / cover;
-  filter: blur(78px) saturate(0.65);
-  opacity: 0.39;
-  pointer-events: none;
 }
 .page-shell {
   max-width: 1580px;
@@ -176,9 +165,9 @@ svg {
   gap: 8px;
   min-height: 38px;
   padding: 0 14px;
-  border: 1px solid #d8dbcd;
+  border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: rgb(255 255 255 / 24%);
+  background: var(--surface-glass);
   font-size: 12px;
   transition: background 180ms;
 }
@@ -217,7 +206,7 @@ svg {
   letter-spacing: 1.5px;
   margin-left: 10px;
   padding-left: 20px;
-  border-left: 1px solid #bfc5b6;
+  border-left: 1px solid var(--line);
   color: var(--subtle);
 }
 .intro h1 {
@@ -252,7 +241,7 @@ svg {
   align-self: center;
   margin-right: 1px;
   padding-left: 25px;
-  border-left: 1px solid #d6d9cc;
+  border-left: 1px solid var(--line);
   min-width: 192px;
 }
 .mini-spectrum {
@@ -264,27 +253,12 @@ svg {
 .mini-spectrum i {
   flex: 1;
   border-radius: 2px;
-  background: #2e4640;
-}
-.mini-spectrum i:nth-child(2) {
-  background: #5d705e;
-}
-.mini-spectrum i:nth-child(3) {
-  background: #bd985d;
-}
-.mini-spectrum i:nth-child(4) {
-  background: #e7c8a0;
-}
-.mini-spectrum i:nth-child(5) {
-  background: #9c513b;
-}
-.mini-spectrum i:nth-child(6) {
-  background: #ded4bb;
+  background: var(--theme-primary);
 }
 .intro-aside p {
   font-family: var(--font-serif);
   font-size: 13px;
-  color: #757b67;
+  color: var(--muted);
   line-height: 1.95;
   letter-spacing: 1.7px;
   margin: 12px 0 9px;
@@ -315,7 +289,7 @@ svg {
   white-space: nowrap;
   border-radius: var(--radius-sm);
   font-size: 12px;
-  color: #7b8072;
+  color: var(--muted);
   min-height: 40px;
   transition: background 180ms;
 }
@@ -323,15 +297,15 @@ svg {
   padding-left: 13px;
 }
 .category-tabs button:hover {
-  background: #fff6;
+  background: var(--surface-glass);
   color: var(--ink);
 }
 .category-tabs button[aria-pressed="true"] {
-  background: #fff9;
+  background: var(--surface-glass);
   color: var(--ink-deep);
   box-shadow:
     0 1px 3px #4251320c,
-    inset 0 0 0 1px #fff9;
+    inset 0 0 0 1px var(--surface-glass);
   font-weight: 650;
 }
 .category-tabs :where(button) > span {
@@ -347,7 +321,7 @@ svg {
   width: 210px;
   color: var(--subtle);
   padding: 9px 4px 9px 12px;
-  border-bottom: 1px solid #cbd1be;
+  border-bottom: 1px solid var(--line);
 }
 .search-field input {
   min-width: 0;
@@ -359,7 +333,7 @@ svg {
   font-size: 12px;
 }
 .search-field input::placeholder {
-  color: #8b9082;
+  color: var(--subtle);
 }
 .search-field:focus-within {
   border-color: var(--sage);
@@ -399,7 +373,7 @@ svg {
   font-size: 30px;
   font-weight: 300;
   letter-spacing: -1px;
-  color: #a8ad97;
+  color: var(--subtle);
   align-self: flex-start;
   line-height: 1.2;
   margin-right: 1px;
@@ -419,7 +393,7 @@ svg {
   color: var(--muted);
 }
 .collection-tag {
-  border: 1px solid #d8decd;
+  border: 1px solid var(--line);
   color: var(--sage);
   font-size: 10px;
   padding: 5px 8px;
@@ -433,7 +407,7 @@ svg {
   align-items: center;
   gap: 8px;
   font-size: 11px;
-  color: #838a78;
+  color: var(--muted);
 }
 .feature-heading-note > svg {
   margin-left: 10px;
@@ -461,7 +435,7 @@ svg {
   border-radius: 13px;
   overflow: hidden;
   isolation: isolate;
-  background: #d4b88e;
+  background: var(--theme-surface-alt);
 }
 .artwork-glass {
   height: 100%;
@@ -520,7 +494,7 @@ svg {
   gap: 12px;
   background: rgb(43 49 37 / 15%);
   box-shadow:
-    inset 0 0 0 0.5px #fff6,
+    inset 0 0 0 0.5px var(--surface-glass),
     0 4px 16px #00000014;
   color: #fffdf1;
   pointer-events: none;
@@ -548,7 +522,7 @@ svg {
   position: absolute;
   left: 17px;
   bottom: 15px;
-  color: #fff9;
+  color: var(--surface-glass);
   font-size: 7px;
   letter-spacing: 1.3px;
   text-shadow: 0 1px 3px #0006;
@@ -564,7 +538,7 @@ svg {
   margin: 11px 0;
   font-family: var(--font-serif);
   font-size: 11px;
-  color: #7d816e;
+  color: var(--muted);
   letter-spacing: 0.5px;
   line-height: 1.7;
 }
@@ -593,7 +567,7 @@ svg {
 .section-index {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: #8d9580;
+  color: var(--subtle);
 }
 .section-heading h3 {
   margin: 0;
@@ -604,7 +578,7 @@ svg {
 .section-english {
   font-size: 8px;
   letter-spacing: 1.2px;
-  color: #939787;
+  color: var(--subtle);
   margin-left: 4px;
 }
 .format-switch {
@@ -612,7 +586,7 @@ svg {
   align-items: center;
   gap: 1px;
   padding: 3px;
-  background: #e3e7d980;
+  background: var(--control-tint);
   border-radius: 6px;
 }
 .format-switch button {
@@ -622,11 +596,11 @@ svg {
   font-weight: 550;
   background: transparent;
   border-radius: 4px;
-  color: #8b9280;
+  color: var(--subtle);
   letter-spacing: 0.3px;
 }
 .format-switch button[aria-pressed="true"] {
-  background: #fffdf6;
+  background: var(--surface);
   box-shadow: 0 1px 3px #3744280c;
   color: var(--ink);
 }
@@ -692,7 +666,7 @@ svg {
   align-items: center;
   gap: 8px;
   min-height: 31px;
-  color: #929785;
+  color: var(--subtle);
   font-size: 10px;
 }
 .palette-detail-line > span {
@@ -701,7 +675,7 @@ svg {
   gap: 5px;
 }
 .tiny-dot {
-  background: #919a80;
+  background: var(--subtle);
   width: 3px;
   height: 3px;
   border-radius: 50%;
@@ -710,7 +684,7 @@ svg {
   display: flex;
   align-items: center;
   gap: 3px;
-  color: #6b7a60;
+  color: var(--muted);
   background: transparent;
   font-size: 10px;
   padding: 6px 0;
@@ -731,23 +705,23 @@ svg {
   display: grid;
   place-items: center;
   background: transparent;
-  color: #919b86;
+  color: var(--subtle);
 }
 .preview-controls button[aria-pressed="true"] {
-  background: #dfe5d4;
+  background: var(--control-active);
   color: var(--ink);
 }
 .preview-controls > span {
   height: 11px;
   width: 1px;
-  background: #d9ddcf;
+  background: var(--line);
   margin: 0 4px;
 }
 .browser-window {
-  border: 1px solid #d2d6c7;
+  border: 1px solid var(--line);
   border-radius: 8px;
   overflow: hidden;
-  background: #fffaf0;
+  background: var(--surface);
   box-shadow: 0 3px 8px #31452806;
   width: 100%;
   transition: max-width 280ms var(--ease);
@@ -758,9 +732,9 @@ svg {
   justify-content: space-between;
   align-items: center;
   padding: 0 11px;
-  background: #eeefe5;
-  border-bottom: 1px solid #dedecf;
-  color: #929682;
+  background: var(--control-tint);
+  border-bottom: 1px solid var(--line);
+  color: var(--subtle);
 }
 .browser-bar > span {
   font-size: 7.5px;
@@ -778,16 +752,16 @@ svg {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d1d4c3;
+  background: var(--control-tint);
 }
 .browser-dots i:first-child {
-  background: #beac8b;
+  background: var(--theme-accent);
 }
 .browser-lock {
   display: inline-block;
   width: 5px;
   height: 5px;
-  border: 1px solid #9fa48e;
+  border: 1px solid var(--subtle);
   border-radius: 1px;
   margin-right: 4px;
 }
@@ -972,14 +946,14 @@ svg {
   justify-content: space-between;
   min-height: 28px;
   font-size: 9px;
-  color: #939985;
+  color: var(--subtle);
   gap: 6px;
 }
 .contrast-pass {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  color: #6c7e5e;
+  color: var(--sage);
   white-space: nowrap;
 }
 .contrast-fail {
@@ -993,7 +967,7 @@ svg {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  border-top: 1px solid rgb(195 204 178 / 48%);
+  border-top: 1px solid var(--line);
   margin: 3px 26px 0;
   padding: 19px 0 20px;
 }
@@ -1013,7 +987,7 @@ svg {
   justify-content: space-between;
   margin-top: 9px;
   font-size: 9px;
-  color: #868d78;
+  color: var(--subtle);
 }
 .export-actions {
   display: flex;
@@ -1039,33 +1013,33 @@ svg {
 }
 .button-primary {
   background: var(--ink-deep);
-  color: #f8faef;
+  color: var(--theme-on-primary);
   border-color: var(--ink-deep);
   box-shadow:
     inset 0 1px 0 #ffffff12,
     0 3px 5px #1f342412;
 }
 .button-primary:hover {
-  background: #355245;
+  background: var(--theme-primary-hover);
   box-shadow: 0 4px 12px #263b3322;
 }
 .button-primary > svg:last-child:not(:first-child) {
   margin-left: 6px;
 }
 .button-secondary {
-  background: rgb(255 255 255 / 40%);
-  border-color: #cfd7c1;
-  color: #55664c;
+  background: var(--surface-glass);
+  border-color: var(--line);
+  color: var(--muted);
 }
 .button-secondary:hover {
-  background: #fbfcf4;
+  background: var(--surface);
 }
 .text-button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   background: none;
-  color: #818d72;
+  color: var(--muted);
   padding: 9px 5px;
   font-size: 10px;
 }
@@ -1082,7 +1056,7 @@ svg {
   flex-shrink: 0;
   width: 32px;
   height: 38px;
-  border: 1px solid #9eac8c;
+  border: 1px solid var(--line);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1090,7 +1064,7 @@ svg {
   font-size: 11px;
   line-height: 1.25;
   text-align: center;
-  color: #849371;
+  color: var(--muted);
   border-radius: 2px;
   transform: rotate(-3deg);
 }
@@ -1103,7 +1077,7 @@ svg {
 }
 .method-note p {
   font-size: 10px;
-  color: #899079;
+  color: var(--muted);
   margin: 0;
   line-height: 1.9;
 }
@@ -1113,18 +1087,18 @@ svg {
   gap: 8px;
   background: none;
   margin-left: auto;
-  color: #85916f;
+  color: var(--muted);
   font-size: 10px;
   white-space: nowrap;
   padding: 12px 0 12px 16px;
 }
 .site-footer {
-  border-top: 1px solid #d6ddc7;
+  border-top: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 22px 0 24px;
-  color: #959d88;
+  color: var(--subtle);
   font-size: 9px;
   letter-spacing: 0.5px;
   gap: 16px;
@@ -1189,9 +1163,9 @@ svg {
   padding: 14px 20px;
   border-radius: 11px;
   box-shadow: 0 8px 40px #23302826;
-  background: #253d32;
+  background: var(--theme-primary);
   border: 1px solid #ffffff30;
-  color: #f9fbee;
+  color: var(--theme-on-primary);
   font-size: 12px;
   transform: translate(-50%, 12px);
   opacity: 0;
@@ -1207,7 +1181,8 @@ svg {
   opacity: 1;
 }
 .copy-toast--error {
-  background: #834a35;
+  background: var(--theme-accent);
+  color: var(--theme-on-accent);
 }
 .palette-modal {
   width: min(800px, calc(100vw - 48px));
@@ -1216,7 +1191,7 @@ svg {
   border: 1px solid #ffffffe0;
   border-radius: 22px;
   color: var(--ink);
-  background: #f8f8f1;
+  background: var(--surface);
   box-shadow: 0 35px 100px #172d3233;
   overflow: auto;
 }
@@ -1238,7 +1213,7 @@ svg {
   position: sticky;
   top: 0;
   z-index: 5;
-  background: #f8f8f1f5;
+  background: var(--surface);
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
 }
@@ -1254,13 +1229,13 @@ svg {
   height: 36px;
   display: grid;
   place-items: center;
-  background: #e9ede1;
+  background: var(--control-tint);
   color: var(--sage);
   border-radius: 50%;
   flex-shrink: 0;
 }
 .icon-button:hover {
-  background: #dce3d0;
+  background: var(--control-active);
 }
 .modal-body {
   padding: 24px 28px 28px;
@@ -1310,10 +1285,10 @@ svg {
   width: 100%;
   height: 390px;
   resize: vertical;
-  border: 1px solid #d9dfcc;
+  border: 1px solid var(--line);
   border-radius: 10px;
-  background: #eef0e6;
-  color: #44553a;
+  background: var(--control-tint);
+  color: var(--muted);
   font-family: var(--font-mono);
   font-size: 12px;
   line-height: 1.85;
@@ -1340,9 +1315,9 @@ svg {
   align-items: center;
   gap: 10px;
   padding: 12px;
-  border: 1px solid #dce1d2;
+  border: 1px solid var(--line);
   border-radius: 9px;
-  background: #fffffa;
+  background: var(--surface);
   text-align: left;
   min-width: 0;
 }
@@ -1375,10 +1350,10 @@ svg {
   color: var(--sage);
 }
 .token-row > svg {
-  color: #97a286;
+  color: var(--subtle);
 }
 .token-row:hover {
-  border-color: #a5b294;
+  border-color: var(--sage);
 }
 .contrast-heading {
   margin-top: 26px;
@@ -1424,7 +1399,7 @@ svg {
 .guide-step > span {
   font-family: var(--font-serif);
   font-size: 25px;
-  color: #99a588;
+  color: var(--subtle);
 }
 .guide-step h3 {
   font-family: var(--font-serif);
@@ -1441,9 +1416,9 @@ svg {
 .guide-disclosure {
   font-size: 11px;
   padding: 18px 20px;
-  background: #e9edde;
+  background: var(--control-tint);
   border-radius: 9px;
-  color: #7c896d;
+  color: var(--muted);
   line-height: 1.9;
   margin: 12px 0 0;
 }
@@ -1811,8 +1786,8 @@ svg {
   .search-field {
     min-width: 0;
     width: 100%;
-    background: #ffffff29;
-    border: 1px solid #d2d9c7;
+    background: var(--surface-glass);
+    border: 1px solid var(--line);
     border-radius: 7px;
     height: 39px;
     padding-inline: 13px;

@@ -57,7 +57,8 @@ Use these palette distribution percentages to guide relative visual emphasis, no
 ${distribution}
 
 ## Art direction
-Create a contemporary Dunhuang-inspired visual language: mineral-pigment color, restrained mural-like ornament, tactile references to aged plaster, silk, carved stone, and carefully controlled metallic accents. Keep ornament deliberate and legible; use generous editorial spacing and a clear typographic hierarchy. Let the supplied story and colors—not stock clichés—determine the motif. Use Noto Serif SC for expressive Chinese display typography and Manrope for interface and supporting text, with sensible fallbacks. Build a coherent spatial system with aligned grids, intentional rhythm, and carefully layered surfaces. Use glass only as a restrained decorative material; never put essential reading content on a low-contrast translucent surface.
+${palette.artDirection}
+Use Noto Serif SC for expressive Chinese display typography and Manrope for interface and supporting text, with sensible fallbacks. Build a coherent spatial system with aligned grids, intentional rhythm, and carefully layered surfaces. Use glass only as a restrained decorative material; never put essential reading content on a low-contrast translucent surface.
 
 ## Responsive behavior
 Design mobile-first and adapt the hierarchy, spacing, navigation, and palette compositions for narrow, medium, and wide viewports. Prevent horizontal overflow, preserve readable line lengths, and keep every interactive target usable by touch and keyboard. Respect reduced-motion preferences.
