@@ -175,6 +175,9 @@ export function App() {
           <span>原创 AI 意象 · 语义配色策展</span>
           <span>
             慢慢收集，认真配色。<span className="footer-year">© 2026</span>
+            <span className="footer-version" title={`版本 ${__APP_VERSION__}`}>
+              v{__APP_VERSION__}
+            </span>
           </span>
         </footer>
       </div>

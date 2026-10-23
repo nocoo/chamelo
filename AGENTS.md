@@ -31,9 +31,10 @@ bun run typecheck
 bun run test
 bun run test:coverage
 bun run check
+bun run release -- --dry-run
 ```
 
-`bun run check` is the pre-commit entrypoint: Biome with warning rejection, strict TypeScript, and Vitest V8 coverage with statements/branches/functions/lines each >=95%. Husky materializes the index into an owned temporary repository before checking. Coverage scope is pure services and viewmodels; view rendering, event wiring and editorial scripts are outside this first scope. Detailed browser verification and hook rejection probes remain unverified; do not claim an L1 grade or full 6DQ certification from the initial checks.
+`bun run check` is the pre-commit entrypoint: Biome with warning rejection, strict TypeScript, and Vitest V8 coverage with statements/branches/functions/lines each >=95%. Husky materializes the index into an owned temporary repository before checking. Coverage scope is pure services, viewmodels and `scripts/lib`; view rendering, event wiring and script orchestration are outside this first scope. Detailed browser verification and hook rejection probes remain unverified; do not claim an L1 grade or full 6DQ certification from the initial checks.
 
 ## Local And Deployment
 
@@ -44,6 +45,7 @@ bun run check
 - `nmem` was unavailable during initial allocation. Ports were checked against both Caddyfiles and bind availability; memory registration is pending.
 - Production: `chamelo.hexly.ai`, future Cloudflare Worker static assets. `wrangler.jsonc` is prepared; no deployment or DNS mutation is authorized implicitly.
 - `package.json` is the sole authoritative version. Stage only explicit task paths and make passing atomic commits; do not push unless asked.
+- `/api/live` is a versioned static-build liveness artifact, not an Azure or database probe. See [versioning and release](docs/releasing.md); the release script prepares a local commit only.
 
 ## Retrospective
 

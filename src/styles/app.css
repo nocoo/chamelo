@@ -1142,6 +1142,12 @@ svg {
   margin-left: 15px;
   font-size: 8px;
 }
+.footer-version {
+  margin-left: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: -0.2px;
+}
 .empty-state {
   display: flex;
   flex-direction: column;
