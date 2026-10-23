@@ -19,7 +19,7 @@ A Chinese-cultural colour atlas. Codename: Chameleon. The first edition is Dunhu
 - Use `gpt-image-2.5-sunburst` for approved artwork. Original PNGs remain unchanged; WebP files are delivery derivatives.
 - Store exact prompts and non-secret extraction evidence under `content/`.
 - Root `.env` contains `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY` for internal generation only. Never print, track or expose them through `VITE_` variables or client code.
-- `bun run artwork:prepare` processes the existing first-edition source without making API calls.
+- `bun run artwork:prepare -- <id> --model gpt-image-2.5-sunburst` processes an archived PNG and prompt without making API calls. Supply the actual generation model; the script cannot infer it from pixels.
 
 ## Commands
 

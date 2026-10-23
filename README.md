@@ -37,7 +37,7 @@ Do not persist mirror tarball URLs in `bun.lock`.
 
 1. Write an original cultural concept and image prompt under `content/<id>/`.
 2. Generate the source image with the configured `agi-image-generation` skill using `gpt-image-2.5-sunburst`. Keep the original PNG unchanged. `content/dunhuang-huacai/prompt.txt` records this edition's exact prompt.
-3. Run `bun run artwork:prepare` to create the first edition's WebP delivery asset and reproducible colour evidence from its original PNG. This command makes **no API calls**.
+3. Run `bun run artwork:prepare -- <id> --model gpt-image-2.5-sunburst` to create that edition's WebP delivery asset and reproducible colour evidence from its original PNG. Supply the actual generation model; the script cannot infer it from pixels. This command makes **no API calls**.
 4. Curate swatches and semantic roles in `src/data/palettes.ts`. Raw extraction is evidence, not the finished theme: adjust lightness, foreground contrast, usage hierarchy and proportions deliberately.
 
 `extraction.json` is reproducible with the preparation script. `exploration.json` preserves supplementary first-edition regional and chromatic samples; the original exploratory hue thresholds were not retained, so those samples are archival rather than a reproducibility claim.

@@ -19,8 +19,8 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "check": "bun run lint && bun run typecheck && bun run test:coverage",
-    "artwork:prepare": "node scripts/prepare-artwork.ts",
-    "release": "node scripts/release.ts",
+    "artwork:prepare": "bun scripts/prepare-artwork.ts",
+    "release": "bun scripts/release.ts",
     "prepare": "husky",
     "deploy": "bun run build && wrangler deploy"
   },
