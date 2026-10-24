@@ -1,6 +1,6 @@
 import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { collection } from '../../src/data/collection';
+import { buildCatalog, collection } from '../../src/data/collection';
 import { draftPalettes } from '../../src/data/draft-palettes';
 import { palettes } from '../../src/data/palettes';
 import { traditionalColours } from '../../src/data/traditional-colours';
@@ -16,7 +16,6 @@ describe('published palette contract', () => {
   it('keeps identifiers unique and every entry complete', () => {
     expect(palettes.length).toBeGreaterThan(0);
     expect(new Set(palettes.map((palette) => palette.id)).size).toBe(palettes.length);
-    expect(new Set(palettes.map((palette) => palette.number)).size).toBe(palettes.length);
     for (const palette of palettes) {
       expect(palette.status).toBe('published');
       expect(palette.id).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
@@ -59,13 +58,21 @@ describe('draft concept contract', () => {
 });
 
 describe('collection contract', () => {
-  it('lists published palettes first and numbers every entry once', () => {
-    expect(collection.slice(0, palettes.length)).toEqual(palettes);
-    expect(collection).toHaveLength(palettes.length + draftPalettes.length);
-    expect(new Set(collection.map((entry) => entry.id)).size).toBe(collection.length);
-    expect(new Set(collection.map((entry) => entry.number)).size).toBe(collection.length);
-    collection.forEach((entry, index) => {
-      expect(entry.number).toBe(String(index + 1).padStart(3, '0'));
-    });
+  it('numbers entries from their catalogue position', () => {
+    const numbered = buildCatalog([...palettes, ...draftPalettes]);
+    expect(numbered.map((entry) => entry.number)).toEqual(
+      numbered.map((_, index) => String(index + 1).padStart(3, '0')),
+    );
+    expect(new Set(numbered.map((entry) => entry.id)).size).toBe(numbered.length);
+    expect(new Set(numbered.map((entry) => entry.number)).size).toBe(numbered.length);
+  });
+
+  it('keeps unpublished concepts out of production builds', () => {
+    expect(collection.slice(0, palettes.length).map((entry) => entry.id)).toEqual(
+      palettes.map((palette) => palette.id),
+    );
+    expect(collection.length).toBe(
+      import.meta.env.DEV ? palettes.length + draftPalettes.length : palettes.length,
+    );
   });
 });

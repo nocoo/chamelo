@@ -112,7 +112,11 @@ export function App() {
               </fieldset>
               <div className="collection-tools">
                 {explorer.visible.length > 1 && (
-                  <nav className="palette-pagination" aria-label="切换意象色板">
+                  <nav
+                    className="palette-pagination"
+                    aria-label="切换意象色板"
+                    aria-keyshortcuts="ArrowLeft ArrowRight"
+                  >
                     <button
                       type="button"
                       onClick={() => explorer.stepPalette(-1)}

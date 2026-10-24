@@ -401,5 +401,6 @@
 
   .palette-feature--draft .draft-pending {
     margin-top: auto;
+    margin-bottom: var(--space-3);
   }
 }

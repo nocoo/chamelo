@@ -1,10 +1,10 @@
-import type { Category, CollectionEntry, Palette } from '../models/palette';
+import type { CatalogEntry, Category, PublicationEntry } from '../models/palette';
 
 export function selectEntries(
-  entries: CollectionEntry[],
+  entries: CatalogEntry[],
   category: Category,
   query: string,
-): CollectionEntry[] {
+): CatalogEntry[] {
   const normalized = query.trim().toLocaleLowerCase();
   return entries.filter((entry) => {
     const inCategory = category === 'all' || entry.category === category;
@@ -16,14 +16,14 @@ export function selectEntries(
 }
 
 export function activeEntry(
-  entries: CollectionEntry[],
+  entries: CatalogEntry[],
   selectedId: string | null,
-): CollectionEntry | undefined {
+): CatalogEntry | undefined {
   return entries.find((entry) => entry.id === selectedId) ?? entries[0];
 }
 
 export function adjacentEntry(
-  entries: CollectionEntry[],
+  entries: CatalogEntry[],
   selectedId: string | null,
   step: -1 | 1,
 ): string | null {
@@ -36,9 +36,9 @@ export function adjacentEntry(
 }
 
 export function themeEntry(
-  entries: CollectionEntry[],
-  active: CollectionEntry | undefined,
-): Palette | undefined {
+  entries: CatalogEntry[],
+  active: CatalogEntry | undefined,
+): PublicationEntry | undefined {
   if (active?.status === 'published') return active;
-  return entries.find((entry): entry is Palette => entry.status === 'published');
+  return entries.find((entry): entry is PublicationEntry => entry.status === 'published');
 }

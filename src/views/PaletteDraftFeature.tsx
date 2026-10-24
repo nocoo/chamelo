@@ -1,5 +1,5 @@
 import { CircleDashed, ImageOff } from 'lucide-react';
-import { categories, type PaletteDraft } from '../models/palette';
+import { categories, type DraftEntry } from '../models/palette';
 
 const directionRows = [
   { key: 'primary', label: '主色', share: '60%' },
@@ -13,7 +13,7 @@ const pendingOutputs = [
   'CSS 变量与 Agent Prompt 导出',
 ];
 
-export function PaletteDraftFeature({ draft }: { draft: PaletteDraft }) {
+export function PaletteDraftFeature({ draft }: { draft: DraftEntry }) {
   return (
     <article className="palette-feature palette-feature--draft">
       <div className="feature-heading">
@@ -26,7 +26,6 @@ export function PaletteDraftFeature({ draft }: { draft: PaletteDraft }) {
           <span className="collection-tag">
             {categories.find((category) => category.id === draft.category)?.label}
           </span>
-          <span className="draft-flag">TODO</span>
         </div>
         <div className="feature-heading-note">
           <CircleDashed size={14} aria-hidden="true" />
@@ -37,6 +36,9 @@ export function PaletteDraftFeature({ draft }: { draft: PaletteDraft }) {
       <div className="feature-grid">
         <div className="artwork-panel">
           <div className="artwork-frame artwork-frame--pending">
+            <span className="draft-ribbon" aria-hidden="true">
+              待生成
+            </span>
             <div className="artwork-topline">
               <span>THE ORIGIN OF COLOUR</span>
             </div>
@@ -104,11 +106,14 @@ export function PaletteDraftFeature({ draft }: { draft: PaletteDraft }) {
                 </li>
               ))}
             </ul>
-            <p className="draft-note">
-              这一版只收录意象与拟色方向。原图、六个色块、语义色和导出会在策展完成后开放。
-            </p>
           </div>
         </div>
+      </div>
+
+      <div className="feature-bottom feature-bottom--draft">
+        <p className="draft-note">
+          这一版只收录意象与拟色方向。原图、六个色块、语义色和导出会在策展完成后开放。
+        </p>
       </div>
     </article>
   );

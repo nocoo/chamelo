@@ -1,4 +1,9 @@
-import { type Palette, type ThemeToken, tokenLabels } from '../models/palette';
+import {
+  type Palette,
+  type PublicationEntry,
+  type ThemeToken,
+  tokenLabels,
+} from '../models/palette';
 import { formatColor } from './colors';
 
 export function createCss(palette: Palette): string {
@@ -9,7 +14,7 @@ export function createCss(palette: Palette): string {
   return `:root {\n${variables}\n}`;
 }
 
-export function createAgentPrompt(palette: Palette): string {
+export function createAgentPrompt(palette: PublicationEntry): string {
   const swatches = palette.swatches
     .map((swatch) => {
       const formats = (['hex', 'rgb', 'hsl', 'oklch'] as const)

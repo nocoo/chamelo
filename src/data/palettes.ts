@@ -3,7 +3,6 @@ import type { Palette } from '../models/palette';
 export const palettes: Palette[] = [
   {
     id: 'dunhuang-huacai',
-    number: '001',
     name: '敦煌华彩',
     english: 'Dunhuang, in colour',
     category: 'murals',

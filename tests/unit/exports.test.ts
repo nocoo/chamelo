@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { type Palette, type ThemeToken, tokenLabels } from '../../src/models/palette';
+import { type PublicationEntry, type ThemeToken, tokenLabels } from '../../src/models/palette';
 import { formatColor } from '../../src/services/colors';
 import { createAgentPrompt, createCss, paletteVariables } from '../../src/services/exports';
 
-const palette: Palette = {
+const palette: PublicationEntry = {
   id: 'dunhuang-evening',
   number: '017',
   name: '暮色入壁',

@@ -3,7 +3,6 @@ import type { PaletteDraft } from '../models/palette';
 export const draftPalettes: PaletteDraft[] = [
   {
     id: 'zhuqi-liujin',
-    number: '002',
     name: '朱漆鎏金',
     english: 'Vermilion lacquer, gilded',
     category: 'objects',
@@ -14,7 +13,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'heiqi-luodian',
-    number: '003',
     name: '黑漆螺钿',
     english: 'Black lacquer, shell inlay',
     category: 'objects',
@@ -25,7 +23,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'xipi-liuxia',
-    number: '004',
     name: '犀皮流霞',
     english: 'Rhinoceros-hide lacquer',
     category: 'objects',
@@ -36,7 +33,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'xuanjin-yejin',
-    number: '005',
     name: '玄金夜锦',
     english: 'Night brocade, black and gold',
     category: 'objects',
@@ -47,7 +43,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'zitan-qianluo',
-    number: '006',
     name: '紫檀嵌螺',
     english: 'Rosewood with shell inlay',
     category: 'objects',
@@ -58,7 +53,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yuebai-chanzhi',
-    number: '007',
     name: '月白缠枝',
     english: 'Moon-white scrollwork',
     category: 'objects',
@@ -69,7 +63,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'jianghong-tuanhua',
-    number: '008',
     name: '绛红团花',
     english: 'Crimson roundels',
     category: 'objects',
@@ -80,7 +73,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'baoxiang-jinwen',
-    number: '009',
     name: '宝相锦纹',
     english: 'Baoxiang floral brocade',
     category: 'objects',
@@ -91,7 +83,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'songshi-ruiyun',
-    number: '010',
     name: '松石瑞云',
     english: 'Turquoise and auspicious clouds',
     category: 'objects',
@@ -102,7 +93,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'kesi-yunhe',
-    number: '011',
     name: '缂丝云鹤',
     english: 'Kesi silk, cranes in cloud',
     category: 'objects',
@@ -113,7 +103,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'suxiu-haitang',
-    number: '012',
     name: '苏绣海棠',
     english: 'Suzhou embroidery, crabapple',
     category: 'objects',
@@ -124,7 +113,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'lanbai-xieran',
-    number: '013',
     name: '蓝白缬染',
     english: 'Indigo resist dye',
     category: 'objects',
@@ -135,7 +123,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'liuli-qiuguang',
-    number: '014',
     name: '琉璃秋光',
     english: 'Glazed autumn light',
     category: 'objects',
@@ -146,7 +133,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'sancai-qiuqi',
-    number: '015',
     name: '三彩秋器',
     english: 'Sancai autumn vessel',
     category: 'objects',
@@ -157,7 +143,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yueyao-mise',
-    number: '016',
     name: '越窑秘色',
     english: 'Mise ware, Yue kiln',
     category: 'objects',
@@ -168,7 +153,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'ruyao-kaipian',
-    number: '017',
     name: '汝窑开片',
     english: 'Ru ware crackle',
     category: 'objects',
@@ -179,7 +163,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'geyao-binglie',
-    number: '018',
     name: '哥窑冰裂',
     english: 'Ge ware ice-crackle',
     category: 'objects',
@@ -190,7 +173,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'jianzhan-yaobian',
-    number: '019',
     name: '建盏曜变',
     english: 'Jian ware, kiln transmutation',
     category: 'objects',
@@ -201,7 +183,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'qinghua-chanzhi',
-    number: '020',
     name: '青花缠枝',
     english: 'Cobalt blue on porcelain',
     category: 'objects',
@@ -212,7 +193,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'youlihong-meiping',
-    number: '021',
     name: '釉里红梅瓶',
     english: 'Underglaze red, plum vase',
     category: 'objects',
@@ -223,7 +203,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'tonglv-guding',
-    number: '022',
     name: '铜绿古鼎',
     english: 'Patina on bronze',
     category: 'objects',
@@ -234,7 +213,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yinliu-xiangnang',
-    number: '023',
     name: '银鎏香囊',
     english: 'Gilded silver sachet',
     category: 'objects',
@@ -245,7 +223,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yuhu-bingxin',
-    number: '024',
     name: '玉壶冰心',
     english: 'Jade, ice clarity',
     category: 'objects',
@@ -256,7 +233,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'feicui-chaozhu',
-    number: '025',
     name: '翡翠朝珠',
     english: 'Jadeite court beads',
     category: 'objects',
@@ -267,7 +243,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'huasi-diancui',
-    number: '026',
     name: '花丝点翠',
     english: 'Filigree and kingfisher blue',
     category: 'objects',
@@ -278,7 +253,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'zhuke-liuqing',
-    number: '027',
     name: '竹刻留青',
     english: 'Bamboo carving, retained skin',
     category: 'objects',
@@ -289,7 +263,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yanchi-songyan',
-    number: '028',
     name: '砚池松烟',
     english: 'Pine-soot ink in the inkstone',
     category: 'objects',
@@ -300,7 +273,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'chengxin-xuanzhi',
-    number: '029',
     name: '澄心宣纸',
     english: 'Chengxin paper',
     category: 'objects',
@@ -311,7 +283,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'xiangzhi-jiushu',
-    number: '030',
     name: '缃帙旧书',
     english: 'Ochre silk book wrap',
     category: 'objects',
@@ -322,7 +293,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'xiangzhuan-niaoniao',
-    number: '031',
     name: '香篆袅袅',
     english: 'Incense seal, rising smoke',
     category: 'objects',
@@ -333,7 +303,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'juzhan-chayan',
-    number: '032',
     name: '菊盏茶烟',
     english: 'Chrysanthemum cup, tea steam',
     category: 'objects',
@@ -344,7 +313,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'piying-denghuang',
-    number: '033',
     name: '皮影灯黄',
     english: 'Shadow puppets, lamp yellow',
     category: 'objects',
@@ -355,7 +323,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'zaojing-lianhua',
-    number: '034',
     name: '藻井莲华',
     english: 'Lotus caisson ceiling',
     category: 'murals',
@@ -366,7 +333,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'feitian-sulian',
-    number: '035',
     name: '飞天素练',
     english: 'Flying apsaras, pale silk',
     category: 'murals',
@@ -377,7 +343,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'qianfo-beiguang',
-    number: '036',
     name: '千佛背光',
     english: 'Thousand Buddhas, haloed',
     category: 'murals',
@@ -388,7 +353,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'jiyue-tianxian',
-    number: '037',
     name: '伎乐天弦',
     english: 'Celestial musicians',
     category: 'murals',
@@ -399,7 +363,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yulin-youlan',
-    number: '038',
     name: '榆林幽蓝',
     english: 'Yulin grotto blues',
     category: 'murals',
@@ -410,7 +373,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'gongyangren-yi',
-    number: '039',
     name: '供养人衣',
     english: 'Donor robes',
     category: 'murals',
@@ -421,7 +383,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'moni-baozhu',
-    number: '040',
     name: '摩尼宝珠',
     english: 'Cintamani pearl',
     category: 'murals',
@@ -432,7 +393,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'zhebi-cancai',
-    number: '041',
     name: '赭壁残彩',
     english: 'Faded pigment on plaster',
     category: 'murals',
@@ -443,7 +403,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'qingluan-diecui',
-    number: '042',
     name: '晴峦叠翠',
     english: 'Layered green ridges',
     category: 'landscapes',
@@ -454,7 +413,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yuanshan-rudai',
-    number: '043',
     name: '远山入黛',
     english: 'Distant hills in brow-ink',
     category: 'landscapes',
@@ -465,7 +423,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'danya-xizhao',
-    number: '044',
     name: '丹崖夕照',
     english: 'Cinnabar cliff at sunset',
     category: 'landscapes',
@@ -476,7 +433,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'jiangshui-hanyan',
-    number: '045',
     name: '江水含烟',
     english: 'River holding mist',
     category: 'landscapes',
@@ -487,7 +443,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'tianqing-yanyu',
-    number: '046',
     name: '天青烟雨',
     english: 'Sky-blue after rain',
     category: 'landscapes',
@@ -498,7 +453,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'zaochun-liuyan',
-    number: '047',
     name: '早春柳烟',
     english: 'Willow haze in early spring',
     category: 'landscapes',
@@ -509,7 +463,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'xiahe-tingyu',
-    number: '048',
     name: '夏荷听雨',
     english: 'Lotus in summer rain',
     category: 'landscapes',
@@ -520,7 +473,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'daolang-jinfeng',
-    number: '049',
     name: '稻浪金风',
     english: 'Golden rice in wind',
     category: 'landscapes',
@@ -531,7 +483,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'shuanglin-ranzui',
-    number: '050',
     name: '霜林染醉',
     english: 'Frosted woods, wine-red',
     category: 'landscapes',
@@ -542,7 +493,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'xueling-gusong',
-    number: '051',
     name: '雪岭孤松',
     english: 'Lone pine on snowy ridge',
     category: 'landscapes',
@@ -553,7 +503,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'zhuhai-yaoqing',
-    number: '052',
     name: '竹海摇青',
     english: 'Bamboo sea shifting green',
     category: 'landscapes',
@@ -564,7 +513,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'meiyu-shijie',
-    number: '053',
     name: '梅雨石阶',
     english: 'Stone steps in plum rain',
     category: 'landscapes',
@@ -575,7 +523,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'shahai-canyang',
-    number: '054',
     name: '沙海残阳',
     english: 'Dunes under a low sun',
     category: 'landscapes',
@@ -586,7 +533,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'huxin-yueying',
-    number: '055',
     name: '湖心月影',
     english: 'Moon on the lake',
     category: 'landscapes',
@@ -597,7 +543,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yunhai-richu',
-    number: '056',
     name: '云海日出',
     english: 'Sunrise above clouds',
     category: 'landscapes',
@@ -608,7 +553,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yuhou-chunshan',
-    number: '057',
     name: '雨后春山',
     english: 'Spring hills after rain',
     category: 'landscapes',
@@ -619,7 +563,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'jiaoshi-langhua',
-    number: '058',
     name: '礁石浪花',
     english: 'Reef and spray',
     category: 'landscapes',
@@ -630,7 +573,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'qiujiang-yuhuo',
-    number: '059',
     name: '秋江渔火',
     english: 'Fishing lights on autumn river',
     category: 'landscapes',
@@ -641,7 +583,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'gongqiang-yinxing',
-    number: '060',
     name: '宫墙银杏',
     english: 'Ginkgo against palace walls',
     category: 'landscapes',
@@ -652,7 +593,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'gongyuan-chuxue',
-    number: '061',
     name: '宫苑初雪',
     english: 'First snow in the palace garden',
     category: 'landscapes',
@@ -663,7 +603,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'guiying-fenqiang',
-    number: '062',
     name: '桂影粉墙',
     english: 'Osmanthus shadow on a white wall',
     category: 'landscapes',
@@ -674,7 +613,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'qiuchi-dieshi',
-    number: '063',
     name: '秋池叠石',
     english: 'Autumn pool, stacked stones',
     category: 'landscapes',
@@ -685,7 +623,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'liyuan-qiuye',
-    number: '064',
     name: '栗园秋叶',
     english: 'Chestnut grove leaves',
     category: 'landscapes',
@@ -696,7 +633,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'jinli-youchi',
-    number: '065',
     name: '锦鲤游池',
     english: 'Koi in a courtyard pool',
     category: 'landscapes',
@@ -707,7 +643,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'zhumen-muyu',
-    number: '066',
     name: '朱门暮雨',
     english: 'Red gate in evening rain',
     category: 'poetry',
@@ -718,7 +653,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'zhuchuang-wanzhao',
-    number: '067',
     name: '竹窗晚照',
     english: 'Evening light at a bamboo window',
     category: 'poetry',
@@ -729,7 +663,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'yuedong-guixiang',
-    number: '068',
     name: '月洞桂香',
     english: 'Moon gate, osmanthus scent',
     category: 'poetry',
@@ -740,7 +673,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'jianjia-lubai',
-    number: '069',
     name: '蒹葭露白',
     english: 'Reeds and white dew',
     category: 'poetry',
@@ -751,7 +683,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'shiye-wanzhu',
-    number: '070',
     name: '柿夜晚朱',
     english: 'Persimmons at night',
     category: 'poetry',
@@ -762,7 +693,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'luoshen-lingbo',
-    number: '071',
     name: '洛神凌波',
     english: 'Goddess on the wave',
     category: 'poetry',
@@ -773,7 +703,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'guanghan-qinghui',
-    number: '072',
     name: '广寒清辉',
     english: 'Cold moonlight of the moon palace',
     category: 'poetry',
@@ -784,7 +713,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'zuili-tiaodeng',
-    number: '073',
     name: '醉里挑灯',
     english: 'Lamp light, wine-warm',
     category: 'poetry',
@@ -795,7 +723,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'guzhou-suoli',
-    number: '074',
     name: '孤舟蓑笠',
     english: 'A lone boat in the rain',
     category: 'poetry',
@@ -806,7 +733,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'taoyao-zhuozhuo',
-    number: '075',
     name: '桃夭灼灼',
     english: 'Peach blossom, radiant',
     category: 'poetry',
@@ -817,7 +743,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'qingdeng-huangjuan',
-    number: '076',
     name: '青灯黄卷',
     english: 'Green lamp, yellowed scrolls',
     category: 'poetry',
@@ -828,7 +753,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'mudanting-meng',
-    number: '077',
     name: '牡丹亭梦',
     english: 'Dream in the peony pavilion',
     category: 'poetry',
@@ -839,7 +763,6 @@ export const draftPalettes: PaletteDraft[] = [
   },
   {
     id: 'guanshan-yuese',
-    number: '078',
     name: '关山月色',
     english: 'Moonlight over the pass',
     category: 'poetry',

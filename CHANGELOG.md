@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Page the collection with the left and right arrow keys, keeping form fields and open dialogs untouched.
+- Mark concepts that still lack artwork with a 待生成 ribbon, and keep them out of production builds so only curated palettes ship.
 - Collect 77 cultural colour concepts across murals, textiles, ceramics, lacquer, gardens, seasons and poetry, each with a TODO placeholder and a traditional-colour direction instead of generated artwork.
 
 ## v0.1.0 - 2026-10-24

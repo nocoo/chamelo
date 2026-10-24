@@ -30,8 +30,6 @@ export const tokenLabels = {
 export type ThemeToken = keyof typeof tokenLabels;
 export type Theme = Record<ThemeToken, string>;
 
-export type CollectionEntry = Palette | PaletteDraft;
-
 export interface PaletteSwatch {
   id: string;
   name: string;
@@ -40,9 +38,8 @@ export interface PaletteSwatch {
   role: string;
 }
 
-interface CollectionEntryFields {
+export interface CollectionEntryFields {
   id: string;
-  number: string;
   name: string;
   english: string;
   category: Exclude<Category, 'all'>;
@@ -54,6 +51,7 @@ export interface PaletteDraft extends CollectionEntryFields {
   status: 'todo';
   direction: { primary: string; secondary: string; accent: string };
 }
+
 export interface Palette extends CollectionEntryFields {
   status: 'published';
   story: string;
@@ -80,3 +78,8 @@ export interface Palette extends CollectionEntryFields {
     description: string;
   }[];
 }
+
+export type CollectionEntry = Palette | PaletteDraft;
+export type PublicationEntry = Palette & { number: string };
+export type DraftEntry = PaletteDraft & { number: string };
+export type CatalogEntry = PublicationEntry | DraftEntry;

@@ -25,7 +25,7 @@ Do not persist mirror tarball URLs in `bun.lock`.
 
 ## What Works
 
-- 78 collected concepts: one fully curated palette and 77 TODO concepts spanning murals, textiles, ceramics, lacquer, gardens, seasons and poetry.
+- 78 collected concepts: one fully curated palette and 77 TODO concepts spanning murals, textiles, ceramics, lacquer, gardens, seasons and poetry. Draft concepts appear only in local development builds and are marked with a 待生成 ribbon.
 - Cultural categories and motif/tag search, including honest empty states.
 - HEX, RGB, HSL and OKLCH formats with individual colour copying.
 - Twelve semantic theme variables, colour-pair contrast records, and CSS export.
@@ -36,7 +36,7 @@ Do not persist mirror tarball URLs in `bun.lock`.
 
 ## Content Workflow
 
-0. Record the concept in `src/data/draft-palettes.ts` with its category, one-line description, tags and a traditional-colour direction using names from `src/data/traditional-colours.ts`. A concept stays `status: 'todo'` and renders as a placeholder until artwork, extraction evidence and curated roles exist.
+0. Record the concept in `src/data/draft-palettes.ts` with its category, one-line description, tags and a traditional-colour direction using names from `src/data/traditional-colours.ts`. A concept stays `status: 'todo'`, renders as a local-only placeholder, and never enters a production build until it is promoted to `palettes.ts` with artwork, extraction evidence and curated roles (see `AGENTS.md`).
 1. Write an original cultural concept and image prompt under `content/<id>/`.
 2. Generate the source image with the configured `agi-image-generation` skill using `gpt-image-2.5-sunburst`. Keep the original PNG unchanged. `content/dunhuang-huacai/prompt.txt` records this edition's exact prompt.
 3. Run `bun run artwork:prepare -- <id> --model gpt-image-2.5-sunburst` to create that edition's WebP delivery asset and reproducible colour evidence from its original PNG. Supply the actual generation model; the script cannot infer it from pixels. This command makes **no API calls**.

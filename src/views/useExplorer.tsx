@@ -1,12 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 import { collection } from '../data/collection';
-import type { Category, ColorFormat, Palette } from '../models/palette';
+import type { Category, ColorFormat, PublicationEntry } from '../models/palette';
 import { activeEntry, adjacentEntry, selectEntries, themeEntry } from '../viewmodels/explorer';
 
 export type ModalState =
-  | { kind: 'artwork' | 'prompt' | 'tokens' | 'preview'; palette: Palette }
+  | { kind: 'artwork' | 'prompt' | 'tokens' | 'preview'; palette: PublicationEntry }
   | { kind: 'guide' }
   | null;
+
+const pagingKeys: Record<string, -1 | 1> = { ArrowLeft: -1, ArrowRight: 1 };
+
+function isTypingTarget(target: EventTarget | null): boolean {
+  return (
+    target instanceof Element &&
+    target.closest('input, textarea, select, [contenteditable="true"]') !== null
+  );
+}
 
 export function useExplorer() {
   const [category, setCategory] = useState<Category>('all');
@@ -25,6 +34,19 @@ export function useExplorer() {
     },
     [],
   );
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      const step = pagingKeys[event.key];
+      if (!step || event.defaultPrevented) return;
+      if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      if (modal || isTypingTarget(event.target) || visible.length < 2) return;
+      event.preventDefault();
+      setSelectedId(adjacentEntry(visible, active?.id ?? null, step));
+    }
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [modal, visible, active]);
 
   async function copy(text: string, label: string) {
     if (timer.current) clearTimeout(timer.current);

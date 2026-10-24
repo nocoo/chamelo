@@ -21,6 +21,14 @@ A Chinese-cultural colour atlas. Codename: Chameleon. The first edition is Dunhu
 - Root `.env` contains `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY` for internal generation only. Never print, track or expose them through `VITE_` variables or client code.
 - `bun run artwork:prepare -- <id> --model gpt-image-2.5-sunburst` processes an archived PNG and prompt without making API calls. Supply the actual generation model; the script cannot infer it from pixels.
 
+## Draft Concepts
+
+- `src/data/draft-palettes.ts` records concepts that have no artwork yet: category, description, tags and a three-slot traditional-colour direction drawn from `src/data/traditional-colours.ts`. A draft carries no hex values, swatches, exports, preview or provenance.
+- The catalogue includes drafts only when `import.meta.env.DEV` is true, so production builds never ship ungenerated ideas. Keep this build-time guard; do not replace it with a runtime flag or a hidden route.
+- Catalogue numbers derive from position in `src/data/collection.ts`. Never store a number in the data; reordering or publishing renumbers automatically.
+- Promote a concept only after its artwork passes review: generate with `gpt-image-2.5-sunburst`, run `bun run artwork:prepare -- <id> --model gpt-image-2.5-sunburst`, keep the prompt and extraction evidence under `content/<id>/`, curate six swatches, twelve semantic roles and the 60/30/10 proportions, and add story, art direction and provenance. Then move the entry into `src/data/palettes.ts` with `status: 'published'` and delete it from `draft-palettes.ts`. The 待生成 ribbon, TODO marking and local-only guard disappear with the draft entry.
+- Run `bun run check` and review the entry in a local browser before committing a promotion. A draft must never be presented as curated content, and a promoted entry must never keep placeholder copy.
+
 ## Commands
 
 ```sh

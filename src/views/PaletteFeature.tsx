@@ -12,14 +12,19 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { useState } from 'react';
-import { type ColorFormat, categories, colorFormats, type Palette } from '../models/palette';
+import {
+  type ColorFormat,
+  categories,
+  colorFormats,
+  type PublicationEntry,
+} from '../models/palette';
 import { foregroundFor, formatColor, themeContrastChecks } from '../services/colors';
 import { createAgentPrompt, createCss } from '../services/exports';
 import { SitePreview } from './SitePreview';
 import type { ModalState } from './useExplorer';
 
 interface PaletteFeatureProps {
-  palette: Palette;
+  palette: PublicationEntry;
   format: ColorFormat;
   onFormat: (format: ColorFormat) => void;
   onCopy: (value: string, label: string) => Promise<void>;

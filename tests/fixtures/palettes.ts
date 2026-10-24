@@ -1,15 +1,21 @@
 import { draftPalettes } from '../../src/data/draft-palettes';
 import { palettes } from '../../src/data/palettes';
-import type { Palette, PaletteDraft } from '../../src/models/palette';
+import type { DraftEntry, PublicationEntry } from '../../src/models/palette';
 
 const source = palettes[0];
 if (!source) throw new Error('The initial curated palette is missing.');
 
-export const warmFixture: Palette = { ...source, id: 'fixture-warm', name: 'Warm fixture' };
-export const coolFixture: Palette = {
+export const warmFixture: PublicationEntry = {
+  ...source,
+  id: 'fixture-warm',
+  name: 'Warm fixture',
+  number: '901',
+};
+export const coolFixture: PublicationEntry = {
   ...source,
   id: 'fixture-cool',
   name: 'Cool fixture',
+  number: '902',
   english: 'Isolated transition fixture',
   category: 'landscapes',
   artDirection: 'A testing fixture, not a published or generated cultural artwork.',
@@ -33,8 +39,9 @@ export const coolFixture: Palette = {
 const sourceDraft = draftPalettes[0];
 if (!sourceDraft) throw new Error('The draft concept collection is missing.');
 
-export const draftFixture: PaletteDraft = {
+export const draftFixture: DraftEntry = {
   ...sourceDraft,
   id: 'fixture-draft',
   name: 'Draft fixture',
+  number: '903',
 };
