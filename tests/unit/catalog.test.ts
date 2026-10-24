@@ -5,7 +5,7 @@ import { draftPalettes } from '../../src/data/draft-palettes';
 import { palettes } from '../../src/data/palettes';
 import { traditionalColours } from '../../src/data/traditional-colours';
 import { categories, tokenLabels } from '../../src/models/palette';
-import { themeContrastChecks } from '../../src/services/colors';
+import { contrastRatio, themeContrastChecks } from '../../src/services/colors';
 
 const categoryIds: string[] = categories
   .map((category) => category.id)
@@ -25,11 +25,28 @@ describe('published palette contract', () => {
       expect(themeContrastChecks(palette.theme).every((check) => check.passes)).toBe(true);
       expect(palette.artDirection.trim().length).toBeGreaterThan(0);
       expect(palette.artwork.caption.trim().length).toBeGreaterThan(0);
+      expect(['light', 'dark']).toContain(palette.mode);
       expect(existsSync(`public${palette.artwork.src}`)).toBe(true);
       expect(existsSync(`public${palette.artwork.original}`)).toBe(true);
       expect(existsSync(`content/${palette.id}/prompt.txt`)).toBe(true);
       expect(existsSync(`content/${palette.id}/extraction.json`)).toBe(true);
     }
+  });
+});
+
+describe('palette surface modes', () => {
+  it('declares a mode that matches the page background', () => {
+    for (const palette of palettes) {
+      const background = palette.theme.background;
+      const leansDark = contrastRatio('#FFFFFF', background) > contrastRatio('#000000', background);
+      expect(leansDark).toBe(palette.mode === 'dark');
+      expect(palette.distribution[0]?.percentage).toBe(60);
+      expect(palette.distribution[0]?.color).toBe(background);
+    }
+  });
+
+  it('mixes dark and light palettes so the atlas is not one tone', () => {
+    expect(new Set(palettes.map((palette) => palette.mode)).size).toBe(2);
   });
 });
 

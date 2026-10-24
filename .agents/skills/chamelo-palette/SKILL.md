@@ -72,13 +72,19 @@ Regional and hue-targeted sampling is the second kind of evidence and is what ma
 
 Six swatches, ordered light to dark or motif to accent, each with a real name from `src/data/traditional-colours.ts`, an English gloss and a role.
 
-- The base swatch is the lightest credible evidence from the image; heavy palettes still need a usable page ground.
+Choose `mode` before choosing tokens. A night interior, a lamplit study, a grotto wall or a river at night belongs on a dark page; a porcelain workshop, a dye yard, a snow court or a rain lake belongs on a light one. The atlas must not be one tone: keep both modes in the collection and let the mode follow the scene, not the other way round.
+
+- `mode: 'light'` puts `background` near the lightest credible evidence and `text` on the dark end of the palette.
+- `mode: 'dark'` puts `background` in the scene's night ink, `surface` a step lighter, `text` on the palette's light end, and `primary` on a luminous colour with a near-black `on-primary`; `primary-hover` goes lighter, not darker.
+- The 60% distribution band always repeats `background` exactly, so the band reads as the page ground in both modes.
+- The base swatch is the lightest credible evidence from the image; in dark mode it stays the swatch list's light end while the page ground is the dark one.
 - The brand colour (`primary`) is the palette's identity colour, taken darker than the raw evidence if contrast demands it.
 - The accent is the scarce colour — gold, flame, shell, lantern. It is allowed to fail the border-only contrast check and nothing else.
 - Twelve tokens, exactly the keys in `tokenLabels`: `background`, `surface`, `surface-alt`, `text`, `text-muted`, `border`, `primary`, `primary-hover`, `on-primary`, `accent`, `on-accent`, `focus`.
 - 60/30/10 distribution with a sentence per band saying what carries that share.
 - Copy is Chinese and concrete: description one line, caption four to eight characters, story two or three sentences naming the place and the light. Stories end by stating the image is an AI interpretation, not a record.
-- `artDirection` is English and written for a coding agent: which surfaces, which accents, what to avoid.
+- `artDirection` is English and written for a coding agent: which surfaces, which accents, what to avoid. State the mode in it ("in dark mode: a near-black ground...") so the brief cannot drift into the opposite surface treatment.
+- Exports carry the mode: `createCss` emits `color-scheme`, and the agent prompt states the surface mode.
 
 Every contrast pair in `themeContrastChecks` must pass before committing — `text/*` and `on-*/*` at 4.5, `focus/*` at 3.0. `border/background` is decorative and is not checked; keep it non-essential. Check candidate themes with `culori`'s `wcagContrast` in a scratch script before editing data, and delete the scratch script.
 

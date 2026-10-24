@@ -26,6 +26,7 @@ export function App() {
       className="theme-root"
       style={siteThemeVariables(explorer.theme)}
       data-palette={explorer.theme?.id}
+      data-mode={explorer.theme?.mode ?? 'light'}
     >
       <a className="skip-link" href="#collection">
         跳转到色板

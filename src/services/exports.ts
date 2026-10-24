@@ -11,7 +11,7 @@ export function createCss(palette: Palette): string {
     .map(([token, color]) => `  --color-${token}: ${color};`)
     .join('\n');
 
-  return `:root {\n${variables}\n}`;
+  return `:root {\n  color-scheme: ${palette.mode};\n${variables}\n}`;
 }
 
 export function createAgentPrompt(palette: PublicationEntry): string {
@@ -44,6 +44,7 @@ export function createAgentPrompt(palette: PublicationEntry): string {
 - Chinese title: ${palette.name}
 - English title: ${palette.english}
 - Palette number: ${palette.number}
+- Surface mode: ${palette.mode} (${palette.mode === 'dark' ? 'build the page on dark surfaces and let light text carry the reading' : 'build the page on light surfaces and let dark text carry the reading'})
 - Motif/category: ${palette.category}
 - Chinese description: ${palette.description}
 - Chinese story: ${palette.story}

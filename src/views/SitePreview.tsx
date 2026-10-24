@@ -16,6 +16,7 @@ export function SitePreview({
     <div
       className={`site-preview${expanded ? ' site-preview--expanded' : ''}`}
       style={paletteVariables(palette)}
+      data-mode={palette.mode}
     >
       <div className="site-preview-nav">
         <span className="preview-wordmark">

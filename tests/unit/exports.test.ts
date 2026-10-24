@@ -10,6 +10,7 @@ const palette: PublicationEntry = {
   english: 'Dusk on the Mural',
   category: 'murals',
   status: 'published',
+  mode: 'light',
   description: '晚霞映照古老石壁。',
   story: '飞天衣袂掠过丹霞，余晖停在沉静的石窟之间。',
   artDirection: 'A Dunhuang-inspired interpretation of mineral pigments and evening light.',
@@ -78,6 +79,7 @@ describe('palette exports', () => {
       expect(css).toContain(`--color-${token}: ${color};`);
     }
     expect(css.match(/--color-/g)).toHaveLength(Object.keys(palette.theme).length);
+    expect(css).toContain('color-scheme: light;');
   });
 
   it('maps every theme token to a palette custom property', () => {
@@ -97,12 +99,21 @@ describe('palette exports', () => {
     });
   });
 
+  it('exports the dark surface mode for dark palettes', () => {
+    const dark = { ...palette, mode: 'dark' as const };
+
+    expect(createCss(dark)).toContain('color-scheme: dark;');
+    expect(createAgentPrompt(dark)).toContain('Surface mode: dark');
+    expect(createAgentPrompt(dark)).toContain('build the page on dark surfaces');
+  });
+
   it('builds a self-contained English brief with Chinese palette context and all swatch formats', () => {
     const prompt = createAgentPrompt(palette);
 
     expect(prompt).toContain('Chinese title: 暮色入壁');
     expect(prompt).toContain('English title: Dusk on the Mural');
     expect(prompt).toContain('Motif/category: murals');
+    expect(prompt).toContain('Surface mode: light');
     expect(prompt).toContain('晚霞映照古老石壁。');
     expect(prompt).toContain('飞天衣袂掠过丹霞，余晖停在沉静的石窟之间。');
     expect(prompt).toContain('一幅描绘暮色石窟的 AI 创作示意图');

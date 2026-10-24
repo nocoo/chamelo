@@ -151,7 +151,10 @@ export function PaletteModal({
         {state.kind === 'tokens' && (
           <>
             <p className="modal-intro">
-              展示色板保留意象；语义色进一步明确每种颜色的工作。流金用于装饰，不用于浅色背景上的小字。
+              展示色板保留意象；语义色进一步明确每种颜色的工作。
+              {state.palette.mode === 'dark'
+                ? '这一套连页面底色都是暗的，亮色只留给文字与操作。'
+                : '流金用于装饰，不用于浅色背景上的小字。'}
             </p>
             <div className="token-grid">
               {(Object.entries(state.palette.theme) as [ThemeToken, string][]).map(

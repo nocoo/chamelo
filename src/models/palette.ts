@@ -52,8 +52,11 @@ export interface PaletteDraft extends CollectionEntryFields {
   direction: { primary: string; secondary: string; accent: string };
 }
 
+export type PaletteMode = 'light' | 'dark';
+
 export interface Palette extends CollectionEntryFields {
   status: 'published';
+  mode: PaletteMode;
   story: string;
   artDirection: string;
   artwork: {
