@@ -1,10 +1,10 @@
 # Changelog
 
-## Unreleased
+## v0.1.1 - 2026-10-24
 
-- Page the collection with the left and right arrow keys, keeping form fields and open dialogs untouched.
-- Mark concepts that still lack artwork with a 待生成 ribbon, and keep them out of production builds so only curated palettes ship.
-- Collect 77 cultural colour concepts across murals, textiles, ceramics, lacquer, gardens, seasons and poetry, each with a TODO placeholder and a traditional-colour direction instead of generated artwork.
+- 1c5af60 feat: page with arrow keys and mark ungenerated concepts with a local-only ribbon
+- bec2c83 feat: collect 77 draft colour concepts with placeholder views
+- b157573 docs: record the first CD release evidence
 
 ## v0.1.0 - 2026-10-24
 
