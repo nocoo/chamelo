@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { collection } from '../data/collection';
-import type { Category, ColorFormat, PublicationEntry } from '../models/palette';
+import type { Category, ColorFormat, PaletteMode, PublicationEntry } from '../models/palette';
+import { oppositeMode, resolveTheme } from '../services/appearance';
 import { activeEntry, adjacentEntry, selectEntries, themeEntry } from '../viewmodels/explorer';
 
 export type ModalState =
@@ -24,9 +25,16 @@ export function useExplorer() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [modal, setModal] = useState<ModalState>(null);
   const [toast, setToast] = useState<{ text: string; error: boolean } | null>(null);
+  const [appearance, setAppearance] = useState<{ id: string; mode: PaletteMode } | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const visible = selectEntries(collection, category, query);
   const active = activeEntry(visible, selectedId);
+  const theme = themeEntry(collection, active);
+  const mode: PaletteMode = theme
+    ? appearance?.id === theme.id
+      ? appearance.mode
+      : theme.mode
+    : 'light';
 
   useEffect(
     () => () => {
@@ -59,6 +67,11 @@ export function useExplorer() {
     timer.current = setTimeout(() => setToast(null), 3200);
   }
 
+  function toggleMode() {
+    if (!theme) return;
+    setAppearance({ id: theme.id, mode: oppositeMode(mode) });
+  }
+
   return {
     category,
     setCategory,
@@ -73,7 +86,10 @@ export function useExplorer() {
     visible,
     active,
     total: collection.length,
-    theme: themeEntry(collection, active),
+    theme,
+    mode,
+    themeTokens: theme ? resolveTheme(theme, mode) : undefined,
+    toggleMode,
     activeIndex: visible.findIndex((entry) => entry.id === active?.id),
     stepPalette: (step: -1 | 1) => setSelectedId(adjacentEntry(visible, active?.id ?? null, step)),
   };

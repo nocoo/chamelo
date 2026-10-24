@@ -100,18 +100,15 @@ svg {
   white-space: nowrap;
 }
 .brand > span:first-of-type {
-  font-size: 29px;
+  font-family: var(--font-serif);
+  font-size: 27px;
   line-height: 1;
-  font-weight: 750;
-  letter-spacing: -1.7px;
+  font-weight: 600;
+  letter-spacing: 5px;
 }
 .brand img {
-  border-radius: 9px;
-  width: 29px;
-  height: 29px;
-}
-.brand-period {
-  color: var(--rust);
+  width: 38px;
+  height: 38px;
 }
 .brand .brand-chinese {
   font-size: 12px;
@@ -158,21 +155,34 @@ svg {
   letter-spacing: 1.3px;
   color: var(--muted);
 }
-.guide-button {
-  display: inline-flex;
+.header-actions {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 38px;
-  padding: 0 14px;
+  gap: 6px;
+}
+.header-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--surface-glass);
-  font-size: 12px;
-  transition: background 180ms;
+  color: var(--muted);
+  transition:
+    background 180ms,
+    color 180ms;
 }
-.guide-button:hover {
+.header-icon:hover {
   background: var(--surface);
+  color: var(--ink);
+}
+.header-icon:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.header-icon img {
+  display: block;
 }
 .intro {
   display: flex;
@@ -1738,15 +1748,14 @@ svg {
     gap: 15px;
   }
   .header-nav {
-    gap: 19px;
-    margin-left: auto;
-  }
-  .header-nav a,
-  .header-nav button {
-    font-size: 12px;
+    display: none;
   }
   .header-end {
-    display: none;
+    margin-left: auto;
+  }
+  .header-icon {
+    width: 32px;
+    height: 32px;
   }
   .brand > span:first-of-type {
     font-size: 27px;

@@ -1,8 +1,8 @@
-import type { Palette } from '../models/palette';
+import type { Theme } from '../models/palette';
 
-export function siteThemeVariables(palette: Palette | undefined): Record<string, string> {
-  if (!palette) return {};
+export function siteThemeVariables(theme: Theme | undefined): Record<string, string> {
+  if (!theme) return {};
   return Object.fromEntries(
-    Object.entries(palette.theme).map(([token, color]) => [`--theme-${token}`, color]),
+    Object.entries(theme).map(([token, color]) => [`--theme-${token}`, color]),
   );
 }

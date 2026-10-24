@@ -1,4 +1,4 @@
-# Chamelo
+# Chamelo (display name 守宫)
 
 A Chinese-cultural colour atlas. Codename: Chameleon. The first edition is Dunhuang Splendour.
 
@@ -13,6 +13,13 @@ A Chinese-cultural colour atlas. Codename: Chameleon. The first edition is Dunhu
 - Desktop viewports at least 1024px wide and 650px tall use a full-width, viewport-height composition. Smaller or zoomed viewports scroll naturally. Keep essential controls visible instead of masking document overflow.
 - Interface copy is Chinese; code, documentation and comments are English. Preserve cultural names in content.
 - Do not add a login, CMS, public generation API, compatibility wrapper or speculative storage layer without a concrete requirement.
+
+## Identity And Chrome
+
+- The interface is named 守宫 and shows no English brand wordmark. Repository, package, Worker, domain and asset slugs stay `chamelo`; only the display name changes.
+- Brand bytes come from the Hexly study: header mark `/brand/mark-64.png`, browser tab `/brand/mark-32.png` and `/brand/mark-16.png`, iOS icon a 180 px resample of `assets/brand/icon.png`, family link `/brand/hexly-mark.svg`. Never redraw, recolour or crop them; see [brand identity](docs/brand.md).
+- The header carries four icon actions in one row: the Hexly family link, the GitHub repository, the light/dark switch and the guide. The guide has no text label; keep its `aria-label` and `title`.
+- Each palette declares `mode`, and the switch derives the opposite mode from that palette's swatch evidence through `src/services/appearance.ts`. The derivation must keep all `themeContrastChecks` passing; curated tokens stay authoritative for exports and the mini preview.
 
 ## Palette Authoring
 

@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Rename the interface to 守宫 and drop the English wordmark from the brand, footer and modal kicker; repository, package and domain keep the `chamelo` slug. Title, `aria-label` set and brand docs follow.
+- Adopt the Hexly-approved identity in the header (mark-64), browser tab (32/16) and iOS icon, and retire the hand-drawn `C` arc favicon.
+- Add four header icon actions: the Hexly family link, the GitHub repository, a light/dark appearance switch and an icon-only guide button. Below 760px the icon row replaces the text navigation.
+- Add a per-palette light/dark switch: `src/services/appearance.ts` derives the opposite mode from the palette's swatch evidence and keeps every contrast pair above AA; the curated tokens stay authoritative for exports and the mini preview.
+- Follow the effective page colour in `theme-color` so mobile browser chrome matches the palette.
+
 - Give every palette a surface mode: 黑漆螺钿, 玄金夜锦, 秋江渔火, 榆林幽蓝 and 醉里挑灯 are now dark pages, the rest stay light. The mode is authored per scene, exported through `color-scheme` and the agent prompt, and kept honest by a contract test.
 - Align the column footnotes in the desktop composition with a shared `--feature-footnote` row, so the artwork caption and the preview footnote sit on one line.
 - Publish 朱漆鎏金 as the second curated palette: an imagined Song palace hall rather than a tabletop study, with its original artwork, extracted evidence and a 60/30/10 cream, vermilion and gilt theme.

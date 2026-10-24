@@ -45,7 +45,7 @@ export function PaletteModal({
     >
       <div className="modal-header">
         <div>
-          <span className="eyebrow">CHAMELO / {state.kind.toUpperCase()}</span>
+          <span className="eyebrow">守宫 / {state.kind.toUpperCase()}</span>
           <h2 id="modal-title">{titles[state.kind]}</h2>
         </div>
         <button type="button" className="icon-button" onClick={onDismiss} aria-label="关闭弹窗">

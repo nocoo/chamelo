@@ -1,6 +1,6 @@
-# Chamelo
+# 守宫 · Chamelo
 
-A considered colour atlas rooted in Chinese culture. Original AI artwork becomes a curated palette, a semantic website theme, and a self-contained brief for a coding agent.
+A considered colour atlas rooted in Chinese culture. The interface is named **守宫** and shows no English wordmark; repository, package and domain keep the `chamelo` slug. Original AI artwork becomes a curated palette, a semantic website theme, and a self-contained brief for a coding agent.
 
 The curated set holds twenty palettes, each taking its colour from an original GPT Image 2.5 Sunburst artwork: **Dunhuang Splendour**, a Song palace hall in 朱漆鎏金, six imagined interiors — 黑漆螺钿, 犀皮流霞, 玄金夜锦, 紫檀嵌螺, 月白缠枝, 绛红团花 — and twelve scenes in the workshop, the palace lane, the rain lake, the snow court, the river night, the temple ceiling, the grotto and the lamplit study. The images are artistic interpretations, not records of historical places or objects.
 
@@ -32,6 +32,8 @@ Do not persist mirror tarball URLs in `bun.lock`.
 - One-click agent prompt export including the motif, every colour, semantic roles, proportions and implementation constraints.
 - A working miniature website using the exact exported theme, plus an expanded preview.
 - Original artwork viewing/download and an isolated liquid-glass lens using `liquid-glass-web-react`.
+- A header row with the 守宫 mark, a Hexly family link, the GitHub repository, a light/dark appearance switch and an icon-only guide button.
+- A light/dark appearance switch per palette: every palette declares its own mode, and the switch derives the opposite one from the artwork's swatch evidence without leaving AA contrast.
 - Responsive layouts and native modal dialogs; current Safari and Chrome are the browser targets.
 
 ## Content Workflow
