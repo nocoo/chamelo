@@ -1,6 +1,6 @@
 {
   "source": "public/artworks/yuebai-chanzhi/original.png",
-  "sourceSha256": "a95d89b04dfabf3d4cdd55d6f2ffda5577165e035fbba3d26c8d654ca4b109b2",
+  "sourceSha256": "315ee6755d2feb63e8742ee7441720bad9dbfabc28e6e87c6224b28dc2f1ee37",
   "width": 1536,
   "height": 1024,
   "model": "gpt-image-2.5-sunburst",
@@ -8,91 +8,91 @@
   "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
   "candidates": [
     {
-      "hex": "#A8AAAC",
+      "hex": "#62656D",
       "rgb": [
-        168,
-        170,
-        172
+        98,
+        101,
+        109
       ]
     },
     {
-      "hex": "#E7E5E2",
+      "hex": "#252627",
       "rgb": [
-        231,
-        229,
-        226
+        37,
+        38,
+        39
       ]
     },
     {
-      "hex": "#71787A",
+      "hex": "#C3C2C5",
       "rgb": [
-        113,
-        120,
-        122
+        195,
+        194,
+        197
       ]
     },
     {
-      "hex": "#CAC9C8",
+      "hex": "#9F9EA1",
       "rgb": [
-        202,
-        201,
-        200
+        159,
+        158,
+        161
       ]
     },
     {
-      "hex": "#898E91",
+      "hex": "#34343C",
       "rgb": [
-        137,
-        142,
-        145
+        52,
+        52,
+        60
       ]
     },
     {
-      "hex": "#BBC4C4",
+      "hex": "#ACB4B5",
       "rgb": [
-        187,
-        196,
-        196
+        172,
+        180,
+        181
       ]
     },
     {
-      "hex": "#B8BBC4",
+      "hex": "#2C343C",
       "rgb": [
-        184,
-        187,
-        196
+        44,
+        52,
+        60
       ]
     },
     {
-      "hex": "#D4DCD8",
+      "hex": "#878F9C",
       "rgb": [
-        212,
-        220,
-        216
+        135,
+        143,
+        156
       ]
     },
     {
-      "hex": "#D1D3DC",
+      "hex": "#ABACBC",
       "rgb": [
-        209,
-        211,
-        220
+        171,
+        172,
+        188
       ]
     },
     {
-      "hex": "#84847C",
+      "hex": "#8C9493",
       "rgb": [
-        132,
-        132,
-        124
+        140,
+        148,
+        147
       ]
     },
     {
-      "hex": "#847C7E",
+      "hex": "#B49C84",
       "rgb": [
-        132,
-        124,
-        126
+        180,
+        156,
+        132
       ]
     }
   ]

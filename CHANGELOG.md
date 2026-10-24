@@ -3,7 +3,7 @@
 ## Unreleased
 
 - Publish 朱漆鎏金 as the second curated palette: an imagined Song palace hall rather than a tabletop study, with its original artwork, extracted evidence and a 60/30/10 cream, vermilion and gilt theme.
-- Publish 黑漆螺钿, 犀皮流霞, 玄金夜锦, 紫檀嵌螺, 月白缠枝 and 绛红团花 with original artworks, extraction evidence and curated themes.
+- Publish 黑漆螺钿, 犀皮流霞, 玄金夜锦, 紫檀嵌螺, 月白缠枝 and 绛红团花 as imagined cultural scenes — a moonlit chamber, a garden corridor at dusk, a banquet hall, a scholar's studio, a moonlit courtyard and a hall dressed for a festival — each with its original artwork, extraction evidence and a curated 60/30/10 theme.
 
 ## v0.1.1 - 2026-10-24
 

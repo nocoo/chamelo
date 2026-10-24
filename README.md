@@ -2,7 +2,7 @@
 
 A considered colour atlas rooted in Chinese culture. Original AI artwork becomes a curated palette, a semantic website theme, and a self-contained brief for a coding agent.
 
-The curated set opens with **Dunhuang Splendour**, a Song palace hall in 朱漆鎏金, and six material studies — 黑漆螺钿, 犀皮流霞, 玄金夜锦, 紫檀嵌螺, 月白缠枝 and 绛红团花 — each taking its colour from an original GPT Image 2.5 Sunburst artwork. The images are artistic interpretations, not records of historical places or objects.
+The curated set opens with **Dunhuang Splendour**, a Song palace hall in 朱漆鎏金, and six imagined scenes — 黑漆螺钿, 犀皮流霞, 玄金夜锦, 紫檀嵌螺, 月白缠枝 and 绛红团花 — each taking its colour from an original GPT Image 2.5 Sunburst artwork. The images are artistic interpretations, not records of historical places or objects.
 
 ## Develop
 

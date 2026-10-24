@@ -1,6 +1,6 @@
 {
   "source": "public/artworks/heiqi-luodian/original.png",
-  "sourceSha256": "3c01b0acdb97f221f5413fc79070962e15c54b6479c98854a4c8c29c17e3338c",
+  "sourceSha256": "a9c94af5abe94283a217ca45001fa589331bafb0a02ba40c412163ae3400531b",
   "width": 1536,
   "height": 1024,
   "model": "gpt-image-2.5-sunburst",
@@ -8,91 +8,91 @@
   "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
   "candidates": [
     {
-      "hex": "#5A626F",
+      "hex": "#727C8E",
+      "rgb": [
+        114,
+        124,
+        142
+      ]
+    },
+    {
+      "hex": "#5A5F6A",
       "rgb": [
         90,
-        98,
-        111
+        95,
+        106
       ]
     },
     {
-      "hex": "#9CA7B4",
+      "hex": "#120F0D",
       "rgb": [
-        156,
-        167,
-        180
+        18,
+        15,
+        13
       ]
     },
     {
-      "hex": "#788698",
+      "hex": "#464850",
       "rgb": [
-        120,
-        134,
-        152
+        70,
+        72,
+        80
       ]
     },
     {
-      "hex": "#0C0D0F",
+      "hex": "#39393B",
       "rgb": [
-        12,
-        13,
-        15
+        57,
+        57,
+        59
       ]
     },
     {
-      "hex": "#3E4752",
+      "hex": "#29292E",
       "rgb": [
-        62,
-        71,
-        82
+        41,
+        41,
+        46
       ]
     },
     {
-      "hex": "#30343A",
+      "hex": "#342927",
       "rgb": [
-        48,
         52,
-        58
+        41,
+        39
       ]
     },
     {
-      "hex": "#66748C",
+      "hex": "#4E3729",
       "rgb": [
-        102,
-        116,
-        140
-      ]
-    },
-    {
-      "hex": "#242C2F",
-      "rgb": [
-        36,
-        44,
-        47
-      ]
-    },
-    {
-      "hex": "#788681",
-      "rgb": [
-        120,
-        134,
-        129
-      ]
-    },
-    {
-      "hex": "#8E867C",
-      "rgb": [
-        142,
-        134,
-        124
-      ]
-    },
-    {
-      "hex": "#3E4E44",
-      "rgb": [
-        62,
         78,
-        68
+        55,
+        41
+      ]
+    },
+    {
+      "hex": "#8C725E",
+      "rgb": [
+        140,
+        114,
+        94
+      ]
+    },
+    {
+      "hex": "#546484",
+      "rgb": [
+        84,
+        100,
+        132
+      ]
+    },
+    {
+      "hex": "#B48C6C",
+      "rgb": [
+        180,
+        140,
+        108
       ]
     }
   ]

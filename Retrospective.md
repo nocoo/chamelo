@@ -35,3 +35,9 @@ The first attempt resolved the override through the internal mirror and rewrote 
 The first 朱漆鎏金 artwork asked for "a single hair-thin gilt line". It looked refined, but median-cut extraction returned only plaster greys, wood browns and two dark reds — no gold at all — so the palette could not honestly be called gilded. Re-prompting with a substantive matte gilt band around the lid and gilded corner fittings kept the same light and negative space while producing a real gold cluster (`#BA7E51`).
 
 When the artwork must supply a palette role, size that material by the pixels an extractor can see rather than by how subtle it looks, and read the extraction output before accepting the image. The rejected first attempt is kept at `content/zhuqi-liujin/attempt-01-no-gilding.png`.
+
+## 2026-10-24 - Palette artwork needs a culture scene, not an object study
+
+The first six palettes after 朱漆鎏金 were generated as tabletop object studies: one lacquer box, one marbled tray, one brocade fold, each filling the frame. The images were technically clean and the extraction worked, but they read as product photography, so the site promised cultural imagery and delivered props. 朱漆鎏金 already worked because its artwork is an imagined Song palace hall with the motif inside it.
+
+All six were re-prompted as cultural scenes — a moonlit chamber, a garden corridor at dusk, a banquet hall, a scholar's studio, a moonlit courtyard and a festival hall — with the motif as one element in three layers of depth, and the palettes were re-extracted from the new pixels. When artwork has to carry a mood rather than a material, prompt for the place and the light first; the object is a detail inside it. The rejected studies are kept under `content/<id>/archive/attempt-01-object-study.png`.

@@ -1,6 +1,6 @@
 {
   "source": "public/artworks/xuanjin-yejin/original.png",
-  "sourceSha256": "eb08a141996c786c47a2cabdede0e57120410a1d02ef786ce09d36881eb03e69",
+  "sourceSha256": "622a4cc257727d4142eb77fd587434c577b65af6230f7d7217f506220be29bdc",
   "width": 1536,
   "height": 1024,
   "model": "gpt-image-2.5-sunburst",
@@ -8,91 +8,91 @@
   "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
   "candidates": [
     {
-      "hex": "#9B7D58",
+      "hex": "#1A1313",
       "rgb": [
-        155,
-        125,
-        88
+        26,
+        19,
+        19
       ]
     },
     {
-      "hex": "#5D4D3C",
+      "hex": "#B6793D",
       "rgb": [
-        93,
-        77,
-        60
+        182,
+        121,
+        61
       ]
     },
     {
-      "hex": "#100C0B",
+      "hex": "#6E4626",
       "rgb": [
-        16,
-        12,
-        11
+        110,
+        70,
+        38
       ]
     },
     {
-      "hex": "#382D25",
+      "hex": "#452D1C",
       "rgb": [
-        56,
+        69,
         45,
-        37
+        28
       ]
     },
     {
-      "hex": "#7B6C52",
+      "hex": "#F8D091",
       "rgb": [
-        123,
-        108,
-        82
+        248,
+        208,
+        145
       ]
     },
     {
-      "hex": "#423C33",
+      "hex": "#423F48",
       "rgb": [
         66,
-        60,
-        51
+        63,
+        72
       ]
     },
     {
-      "hex": "#29241D",
+      "hex": "#2E2C30",
       "rgb": [
-        41,
-        36,
-        29
+        46,
+        44,
+        48
       ]
     },
     {
-      "hex": "#251A15",
+      "hex": "#816C5C",
       "rgb": [
-        37,
-        26,
-        21
+        129,
+        108,
+        92
       ]
     },
     {
-      "hex": "#2A292C",
+      "hex": "#534435",
       "rgb": [
-        42,
-        41,
-        44
-      ]
-    },
-    {
-      "hex": "#444044",
-      "rgb": [
+        83,
         68,
-        64,
-        68
+        53
       ]
     },
     {
-      "hex": "#6A6264",
+      "hex": "#E0B47C",
       "rgb": [
-        106,
-        98,
-        100
+        224,
+        180,
+        124
+      ]
+    },
+    {
+      "hex": "#4C5C74",
+      "rgb": [
+        76,
+        92,
+        116
       ]
     }
   ]
