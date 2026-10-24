@@ -1,6 +1,6 @@
 {
   "source": "public/artworks/zhuqi-liujin/original.png",
-  "sourceSha256": "d0838a5759a3751c73358e0767d3ad610c41ae25e6493d885bab19f025c4aba6",
+  "sourceSha256": "63cfe5fbe4b499fc66067db726fd15fe367cecca0403b3f2bab810a98d0086db",
   "width": 1536,
   "height": 1024,
   "model": "gpt-image-2.5-sunburst",
@@ -8,91 +8,91 @@
   "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
   "candidates": [
     {
-      "hex": "#998876",
+      "hex": "#CB956C",
       "rgb": [
-        153,
-        136,
-        118
-      ]
-    },
-    {
-      "hex": "#A5957F",
-      "rgb": [
-        165,
+        203,
         149,
-        127
+        108
       ]
     },
     {
-      "hex": "#2D2119",
+      "hex": "#381E13",
       "rgb": [
-        45,
-        33,
-        25
+        56,
+        30,
+        19
       ]
     },
     {
-      "hex": "#8A7360",
+      "hex": "#8C5B3E",
       "rgb": [
-        138,
-        115,
-        96
+        140,
+        91,
+        62
       ]
     },
     {
-      "hex": "#756859",
+      "hex": "#663B26",
       "rgb": [
-        117,
-        104,
+        102,
+        59,
+        38
+      ]
+    },
+    {
+      "hex": "#A09790",
+      "rgb": [
+        160,
+        151,
+        144
+      ]
+    },
+    {
+      "hex": "#6D6159",
+      "rgb": [
+        109,
+        97,
         89
       ]
     },
     {
-      "hex": "#CA9761",
+      "hex": "#F6EBD8",
       "rgb": [
-        202,
-        151,
-        97
+        246,
+        235,
+        216
       ]
     },
     {
-      "hex": "#6A473A",
+      "hex": "#0F0906",
       "rgb": [
-        106,
-        71,
-        58
+        15,
+        9,
+        6
       ]
     },
     {
-      "hex": "#513B2E",
+      "hex": "#B2422C",
       "rgb": [
-        81,
-        59,
-        46
+        178,
+        66,
+        44
       ]
     },
     {
-      "hex": "#594D40",
+      "hex": "#645255",
       "rgb": [
-        89,
-        77,
-        64
+        100,
+        82,
+        85
       ]
     },
     {
-      "hex": "#100B08",
+      "hex": "#918996",
       "rgb": [
-        16,
-        11,
-        8
-      ]
-    },
-    {
-      "hex": "#5C534C",
-      "rgb": [
-        92,
-        83,
-        76
+        145,
+        137,
+        150
       ]
     }
   ]
