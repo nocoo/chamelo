@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/zitan-qianluo/original.png",
+  "sourceSha256": "c1e3dc96efb25ee7bc33197bcbdc9a120ed3c99d287dca0986792bd43d1a33e0",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#BCA78E",
+      "rgb": [
+        188,
+        167,
+        142
+      ]
+    },
+    {
+      "hex": "#2D211B",
+      "rgb": [
+        45,
+        33,
+        27
+      ]
+    },
+    {
+      "hex": "#847161",
+      "rgb": [
+        132,
+        113,
+        97
+      ]
+    },
+    {
+      "hex": "#5B4B40",
+      "rgb": [
+        91,
+        75,
+        64
+      ]
+    },
+    {
+      "hex": "#695B54",
+      "rgb": [
+        105,
+        91,
+        84
+      ]
+    },
+    {
+      "hex": "#4B443B",
+      "rgb": [
+        75,
+        68,
+        59
+      ]
+    },
+    {
+      "hex": "#6B6458",
+      "rgb": [
+        107,
+        100,
+        88
+      ]
+    },
+    {
+      "hex": "#080504",
+      "rgb": [
+        8,
+        5,
+        4
+      ]
+    },
+    {
+      "hex": "#A57C5E",
+      "rgb": [
+        165,
+        124,
+        94
+      ]
+    },
+    {
+      "hex": "#9C9C8E",
+      "rgb": [
+        156,
+        156,
+        142
+      ]
+    },
+    {
+      "hex": "#9C908C",
+      "rgb": [
+        156,
+        144,
+        140
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/yuebai-chanzhi/original.png",
+  "sourceSha256": "a95d89b04dfabf3d4cdd55d6f2ffda5577165e035fbba3d26c8d654ca4b109b2",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#A8AAAC",
+      "rgb": [
+        168,
+        170,
+        172
+      ]
+    },
+    {
+      "hex": "#E7E5E2",
+      "rgb": [
+        231,
+        229,
+        226
+      ]
+    },
+    {
+      "hex": "#71787A",
+      "rgb": [
+        113,
+        120,
+        122
+      ]
+    },
+    {
+      "hex": "#CAC9C8",
+      "rgb": [
+        202,
+        201,
+        200
+      ]
+    },
+    {
+      "hex": "#898E91",
+      "rgb": [
+        137,
+        142,
+        145
+      ]
+    },
+    {
+      "hex": "#BBC4C4",
+      "rgb": [
+        187,
+        196,
+        196
+      ]
+    },
+    {
+      "hex": "#B8BBC4",
+      "rgb": [
+        184,
+        187,
+        196
+      ]
+    },
+    {
+      "hex": "#D4DCD8",
+      "rgb": [
+        212,
+        220,
+        216
+      ]
+    },
+    {
+      "hex": "#D1D3DC",
+      "rgb": [
+        209,
+        211,
+        220
+      ]
+    },
+    {
+      "hex": "#84847C",
+      "rgb": [
+        132,
+        132,
+        124
+      ]
+    },
+    {
+      "hex": "#847C7E",
+      "rgb": [
+        132,
+        124,
+        126
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 A considered colour atlas rooted in Chinese culture. Original AI artwork becomes a curated palette, a semantic website theme, and a self-contained brief for a coding agent.
 
-The first two palettes are **Dunhuang Splendour** and **朱漆鎏金**, taking mineral greens, warm sandstone, restrained cinnabar, aged gilt and deep lacquer from original GPT Image 2.5 Sunburst artworks. The images are artistic interpretations, not records of historical murals or objects.
+The curated set opens with **Dunhuang Splendour** and seven object studies — 朱漆鎏金, 黑漆螺钿, 犀皮流霞, 玄金夜锦, 紫檀嵌螺, 月白缠枝 and 绛红团花 — each taking its colour from an original GPT Image 2.5 Sunburst artwork. The images are artistic interpretations, not records of historical murals or objects.
 
 ## Develop
 
@@ -25,7 +25,7 @@ Do not persist mirror tarball URLs in `bun.lock`.
 
 ## What Works
 
-- 78 collected concepts: two fully curated palettes and 76 TODO concepts spanning murals, textiles, ceramics, lacquer, gardens, seasons and poetry. Draft concepts appear only in local development builds and are marked with a 待生成 ribbon.
+- 78 collected concepts: eight fully curated palettes and 70 TODO concepts spanning murals, textiles, ceramics, lacquer, gardens, seasons and poetry. Draft concepts appear only in local development builds and are marked with a 待生成 ribbon.
 - Cultural categories and motif/tag search, including honest empty states.
 - HEX, RGB, HSL and OKLCH formats with individual colour copying.
 - Twelve semantic theme variables, colour-pair contrast records, and CSS export.
