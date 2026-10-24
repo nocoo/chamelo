@@ -87,6 +87,7 @@ export function PaletteFeature({
                 fetchPriority="high"
               />
             </LiquidGlass>
+            <span className="artwork-scrim" aria-hidden="true" />
             <div className="artwork-topline">
               <span>THE ORIGIN OF COLOUR</span>
               <button

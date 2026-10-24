@@ -437,6 +437,15 @@ svg {
   isolation: isolate;
   background: var(--theme-surface-alt);
 }
+.artwork-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background:
+    linear-gradient(to bottom, rgb(22 17 12 / 38%), rgb(22 17 12 / 0%) 18%),
+    linear-gradient(to top, rgb(22 17 12 / 40%), rgb(22 17 12 / 0%) 20%);
+  pointer-events: none;
+}
 .artwork-glass {
   height: 100%;
 }
@@ -448,7 +457,7 @@ svg {
 }
 .artwork-topline {
   position: absolute;
-  z-index: 2;
+  z-index: 50;
   top: 17px;
   left: 18px;
   right: 15px;
@@ -481,7 +490,7 @@ svg {
 }
 .artwork-caption {
   position: absolute;
-  z-index: 2;
+  z-index: 50;
   top: 87.5%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -520,6 +529,7 @@ svg {
 }
 .image-corner-label {
   position: absolute;
+  z-index: 50;
   left: 17px;
   bottom: 15px;
   color: var(--surface-glass);
