@@ -2,16 +2,6 @@ import type { PaletteDraft } from '../models/palette';
 
 export const draftPalettes: PaletteDraft[] = [
   {
-    id: 'zhuqi-liujin',
-    name: '朱漆鎏金',
-    english: 'Vermilion lacquer, gilded',
-    category: 'objects',
-    status: 'todo',
-    description: '朱漆为地，金线走笔。红得沉着，亮得克制。',
-    tags: ['漆器', '朱砂', '泥金', '华贵'],
-    direction: { primary: '朱砂', secondary: '泥金', accent: '乌金' },
-  },
-  {
     id: 'heiqi-luodian',
     name: '黑漆螺钿',
     english: 'Black lacquer, shell inlay',

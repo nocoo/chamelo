@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Publish 朱漆鎏金 as the second curated palette, with its original artwork, extracted evidence and a 60/30/10 vermilion, gilt and plaster theme.
+
 ## v0.1.1 - 2026-10-24
 
 - 1c5af60 feat: page with arrow keys and mark ungenerated concepts with a local-only ribbon

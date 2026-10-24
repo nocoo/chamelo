@@ -29,3 +29,9 @@ Forwarding the same two names from the caller (`secrets: CLOUDFLARE_API_TOKEN/CL
 The security gate failed on `undici@7.29.1` (one high and two moderate advisories, fixed in 7.30.1). It arrives only through `miniflare`, which pins that exact version, and Wrangler 4.151.1 is already the latest release, so bumping the direct dependency could not resolve it. A `bun` override to `7.30.1` fixed the scan, following the same choice already recorded in `wooly` and `otter`.
 
 The first attempt resolved the override through the internal mirror and rewrote hundreds of lockfile entries with mirror tarball URLs, which the release script rejects. Regenerating against the default registry afterwards kept the diff to the override plus the single `undici` entry. Reproduce dependency changes with the default registry whenever reachable, and inspect `bun.lock` for absolute URLs before committing.
+
+## 2026-10-24 - Name the palette role by area, not by a hairline
+
+The first 朱漆鎏金 artwork asked for "a single hair-thin gilt line". It looked refined, but median-cut extraction returned only plaster greys, wood browns and two dark reds — no gold at all — so the palette could not honestly be called gilded. Re-prompting with a substantive matte gilt band around the lid and gilded corner fittings kept the same light and negative space while producing a real gold cluster (`#BA7E51`).
+
+When the artwork must supply a palette role, size that material by the pixels an extractor can see rather than by how subtle it looks, and read the extraction output before accepting the image. The rejected first attempt is kept at `content/zhuqi-liujin/attempt-01-no-gilding.png`.
