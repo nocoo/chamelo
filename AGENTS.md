@@ -14,6 +14,14 @@ A Chinese-cultural colour atlas. Codename: Chameleon. The first edition is Dunhu
 - Interface copy is Chinese; code, documentation and comments are English. Preserve cultural names in content.
 - Do not add a login, CMS, public generation API, compatibility wrapper or speculative storage layer without a concrete requirement.
 
+## Palette Authoring
+
+- Follow `.agents/skills/chamelo-palette/SKILL.md` for every new or revised palette: scene brief, canonical prompt tail, generation and archiving, extraction evidence, curation, promotion, browser verification. It is the authority for the house style; this file only states the invariants.
+- Artwork is a culturally situated scene — a hall, chamber, workshop, courtyard, garden, river or cave — with the motif as one element inside three depths. Never a tabletop object study, never a bare empty room.
+- Six swatches use names from `src/data/traditional-colours.ts`; colours must be evidenced by the image's pixels. If the evidence lacks a colour, drop the colour instead of inventing a swatch.
+- Rejected artwork attempts stay under `content/<id>/archive/attempt-NN-<reason>.png`; the accepted original stays unchanged at `public/artworks/<id>/original.png`.
+- Verify a promotion in a browser at 1440x900 and 390x844 before committing, and record the promotion under `Unreleased` in `CHANGELOG.md`.
+
 ## Generation And Secrets
 
 - Use `gpt-image-2.5-sunburst` for approved artwork. Original PNGs remain unchanged; WebP files are delivery derivatives.
