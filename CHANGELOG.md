@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Keep hairlines visible while the palette crossfades: `--line` now tracks the page with a fixed OKLCH lightness offset instead of mixing two independently animated colours, which used to collapse to 1.0:1 contrast mid-switch between a light and a dark palette.
+
 - Rename the interface to 守宫 and drop the English wordmark from the brand, footer and modal kicker; repository, package and domain keep the `chamelo` slug. Title, `aria-label` set and brand docs follow.
 - Adopt the Hexly-approved identity in the header (mark-64), browser tab (32/16) and iOS icon, and retire the hand-drawn `C` arc favicon.
 - Add four header icon actions: the Hexly family link, the GitHub repository, a light/dark appearance switch and an icon-only guide button. Below 760px the icon row replaces the text navigation.
