@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/gongyuan-chuxue/original.png",
+  "sourceSha256": "3d851992458f9bfcb731ba9f0e6f96a7fc37c230ef3e7b340f92b6d46721be81",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#2F2628",
+      "rgb": [
+        47,
+        38,
+        40
+      ]
+    },
+    {
+      "hex": "#D0CCD1",
+      "rgb": [
+        208,
+        204,
+        209
+      ]
+    },
+    {
+      "hex": "#939FBB",
+      "rgb": [
+        147,
+        159,
+        187
+      ]
+    },
+    {
+      "hex": "#A4AEC4",
+      "rgb": [
+        164,
+        174,
+        196
+      ]
+    },
+    {
+      "hex": "#70788F",
+      "rgb": [
+        112,
+        120,
+        143
+      ]
+    },
+    {
+      "hex": "#8D8F9F",
+      "rgb": [
+        141,
+        143,
+        159
+      ]
+    },
+    {
+      "hex": "#535766",
+      "rgb": [
+        83,
+        87,
+        102
+      ]
+    },
+    {
+      "hex": "#685C61",
+      "rgb": [
+        104,
+        92,
+        97
+      ]
+    },
+    {
+      "hex": "#797472",
+      "rgb": [
+        121,
+        116,
+        114
+      ]
+    },
+    {
+      "hex": "#575452",
+      "rgb": [
+        87,
+        84,
+        82
+      ]
+    },
+    {
+      "hex": "#B49C98",
+      "rgb": [
+        180,
+        156,
+        152
+      ]
+    }
+  ]
+}

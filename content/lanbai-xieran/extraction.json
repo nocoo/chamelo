@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/lanbai-xieran/original.png",
+  "sourceSha256": "eef64754946789a79feefb6c903f6d795105960ce88896098dcf2e67e57fb0bd",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#C6C8CB",
+      "rgb": [
+        198,
+        200,
+        203
+      ]
+    },
+    {
+      "hex": "#1C232C",
+      "rgb": [
+        28,
+        35,
+        44
+      ]
+    },
+    {
+      "hex": "#858584",
+      "rgb": [
+        133,
+        133,
+        132
+      ]
+    },
+    {
+      "hex": "#9BAABC",
+      "rgb": [
+        155,
+        170,
+        188
+      ]
+    },
+    {
+      "hex": "#586C88",
+      "rgb": [
+        88,
+        108,
+        136
+      ]
+    },
+    {
+      "hex": "#8094B2",
+      "rgb": [
+        128,
+        148,
+        178
+      ]
+    },
+    {
+      "hex": "#465265",
+      "rgb": [
+        70,
+        82,
+        101
+      ]
+    },
+    {
+      "hex": "#545245",
+      "rgb": [
+        84,
+        82,
+        69
+      ]
+    },
+    {
+      "hex": "#696C65",
+      "rgb": [
+        105,
+        108,
+        101
+      ]
+    },
+    {
+      "hex": "#434C4C",
+      "rgb": [
+        67,
+        76,
+        76
+      ]
+    },
+    {
+      "hex": "#AC8C74",
+      "rgb": [
+        172,
+        140,
+        116
+      ]
+    }
+  ]
+}

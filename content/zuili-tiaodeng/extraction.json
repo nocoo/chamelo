@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/zuili-tiaodeng/original.png",
+  "sourceSha256": "e9061095fcc4ab3ef6d395b728d4043de22db37cb7595a6ca52d3875d98834a5",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#0E0705",
+      "rgb": [
+        14,
+        7,
+        5
+      ]
+    },
+    {
+      "hex": "#B16A36",
+      "rgb": [
+        177,
+        106,
+        54
+      ]
+    },
+    {
+      "hex": "#5F331B",
+      "rgb": [
+        95,
+        51,
+        27
+      ]
+    },
+    {
+      "hex": "#33150A",
+      "rgb": [
+        51,
+        21,
+        10
+      ]
+    },
+    {
+      "hex": "#1E2330",
+      "rgb": [
+        30,
+        35,
+        48
+      ]
+    },
+    {
+      "hex": "#F7D5AC",
+      "rgb": [
+        247,
+        213,
+        172
+      ]
+    },
+    {
+      "hex": "#1A1C1E",
+      "rgb": [
+        26,
+        28,
+        30
+      ]
+    },
+    {
+      "hex": "#2C3440",
+      "rgb": [
+        44,
+        52,
+        64
+      ]
+    },
+    {
+      "hex": "#84643C",
+      "rgb": [
+        132,
+        100,
+        60
+      ]
+    },
+    {
+      "hex": "#F4AC64",
+      "rgb": [
+        244,
+        172,
+        100
+      ]
+    },
+    {
+      "hex": "#343C54",
+      "rgb": [
+        52,
+        60,
+        84
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/tianqing-yanyu/original.png",
+  "sourceSha256": "405eae9593e23d051ded7ac06f1bb3011c0d95cf7e228473d57679e095525962",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#8DA3B2",
+      "rgb": [
+        141,
+        163,
+        178
+      ]
+    },
+    {
+      "hex": "#252D2C",
+      "rgb": [
+        37,
+        45,
+        44
+      ]
+    },
+    {
+      "hex": "#505F60",
+      "rgb": [
+        80,
+        95,
+        96
+      ]
+    },
+    {
+      "hex": "#C5D5E4",
+      "rgb": [
+        197,
+        213,
+        228
+      ]
+    },
+    {
+      "hex": "#39434C",
+      "rgb": [
+        57,
+        67,
+        76
+      ]
+    },
+    {
+      "hex": "#3B4D51",
+      "rgb": [
+        59,
+        77,
+        81
+      ]
+    },
+    {
+      "hex": "#617985",
+      "rgb": [
+        97,
+        121,
+        133
+      ]
+    },
+    {
+      "hex": "#596C7C",
+      "rgb": [
+        89,
+        108,
+        124
+      ]
+    },
+    {
+      "hex": "#B5CCD4",
+      "rgb": [
+        181,
+        204,
+        212
+      ]
+    },
+    {
+      "hex": "#5C7444",
+      "rgb": [
+        92,
+        116,
+        68
+      ]
+    },
+    {
+      "hex": "#846444",
+      "rgb": [
+        132,
+        100,
+        68
+      ]
+    }
+  ]
+}

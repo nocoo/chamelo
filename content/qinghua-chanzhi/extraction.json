@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/qinghua-chanzhi/original.png",
+  "sourceSha256": "fff10ff4bce4f820613ee1a9a2aa7f40aa5c76c96c383c930436548f49035a64",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#C8C6C5",
+      "rgb": [
+        200,
+        198,
+        197
+      ]
+    },
+    {
+      "hex": "#2A292B",
+      "rgb": [
+        42,
+        41,
+        43
+      ]
+    },
+    {
+      "hex": "#8B8686",
+      "rgb": [
+        139,
+        134,
+        134
+      ]
+    },
+    {
+      "hex": "#9EA9B6",
+      "rgb": [
+        158,
+        169,
+        182
+      ]
+    },
+    {
+      "hex": "#656F81",
+      "rgb": [
+        101,
+        111,
+        129
+      ]
+    },
+    {
+      "hex": "#464D5B",
+      "rgb": [
+        70,
+        77,
+        91
+      ]
+    },
+    {
+      "hex": "#625C5C",
+      "rgb": [
+        98,
+        92,
+        92
+      ]
+    },
+    {
+      "hex": "#8998AF",
+      "rgb": [
+        137,
+        152,
+        175
+      ]
+    },
+    {
+      "hex": "#706C69",
+      "rgb": [
+        112,
+        108,
+        105
+      ]
+    },
+    {
+      "hex": "#4F4C49",
+      "rgb": [
+        79,
+        76,
+        73
+      ]
+    },
+    {
+      "hex": "#AC8C7E",
+      "rgb": [
+        172,
+        140,
+        126
+      ]
+    }
+  ]
+}

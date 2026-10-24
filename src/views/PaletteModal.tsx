@@ -87,7 +87,7 @@ export function PaletteModal({
               </div>
             </div>
             <p className="guide-disclosure">
-              已策展八套配色。另有 70
+              已策展二十套配色。另有 57
               个意象已收录待策展，先定传统色名方向，再生成原图与语义配色。所有影像均为 AI
               创作的当代诠释，不作历史文物记录。
             </p>

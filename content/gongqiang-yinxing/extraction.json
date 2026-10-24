@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/gongqiang-yinxing/original.png",
+  "sourceSha256": "92ca03a3fc04347716ff2d166a2dbc97e189b7764cdf8b1a81a3b6e9fc5e276d",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#ECC490",
+      "rgb": [
+        236,
+        196,
+        144
+      ]
+    },
+    {
+      "hex": "#D59247",
+      "rgb": [
+        213,
+        146,
+        71
+      ]
+    },
+    {
+      "hex": "#673C26",
+      "rgb": [
+        103,
+        60,
+        38
+      ]
+    },
+    {
+      "hex": "#30180E",
+      "rgb": [
+        48,
+        24,
+        14
+      ]
+    },
+    {
+      "hex": "#AA6A30",
+      "rgb": [
+        170,
+        106,
+        48
+      ]
+    },
+    {
+      "hex": "#B38962",
+      "rgb": [
+        179,
+        137,
+        98
+      ]
+    },
+    {
+      "hex": "#89684D",
+      "rgb": [
+        137,
+        104,
+        77
+      ]
+    },
+    {
+      "hex": "#967766",
+      "rgb": [
+        150,
+        119,
+        102
+      ]
+    },
+    {
+      "hex": "#45130A",
+      "rgb": [
+        69,
+        19,
+        10
+      ]
+    },
+    {
+      "hex": "#C0AC9C",
+      "rgb": [
+        192,
+        172,
+        156
+      ]
+    },
+    {
+      "hex": "#344448",
+      "rgb": [
+        52,
+        68,
+        72
+      ]
+    }
+  ]
+}

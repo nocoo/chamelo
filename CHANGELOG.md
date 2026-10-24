@@ -4,6 +4,8 @@
 
 - Publish 朱漆鎏金 as the second curated palette: an imagined Song palace hall rather than a tabletop study, with its original artwork, extracted evidence and a 60/30/10 cream, vermilion and gilt theme.
 - Publish 黑漆螺钿, 犀皮流霞, 玄金夜锦, 紫檀嵌螺, 月白缠枝 and 绛红团花 as imagined cultural scenes — a moonlit chamber, a garden corridor at dusk, a banquet hall, a scholar's studio, a moonlit courtyard and a hall dressed for a festival — each with its original artwork, extraction evidence and a curated 60/30/10 theme.
+- Publish twelve more scenes, bringing the atlas to twenty curated palettes: a porcelain workshop (青花缠枝), a kesi loom (缂丝云鹤), a rainlit study with a Ru water bowl (汝窑开片), an indigo dye yard (蓝白缬染), a ginkgo palace lane (宫墙银杏), a rain lake (天青烟雨), a snowbound palace court (宫苑初雪), an autumn river at night (秋江渔火), a temple caisson ceiling (藻井莲华), a grotto wall in ultramarine (榆林幽蓝), the moon palace terrace (广寒清辉) and a lamplit study (醉里挑灯).
+- Fix the palette authoring style as a project skill at `.agents/skills/chamelo-palette/SKILL.md` and point `AGENTS.md` at it.
 
 ## v0.1.1 - 2026-10-24
 

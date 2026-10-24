@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/ruyao-kaipian/original.png",
+  "sourceSha256": "1521a4ebedf94b8a35f27009ecc5508b7b9c89e8cc7602f3b171c4e0e9371e14",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#241E19",
+      "rgb": [
+        36,
+        30,
+        25
+      ]
+    },
+    {
+      "hex": "#7B776D",
+      "rgb": [
+        123,
+        119,
+        109
+      ]
+    },
+    {
+      "hex": "#A5ADB1",
+      "rgb": [
+        165,
+        173,
+        177
+      ]
+    },
+    {
+      "hex": "#9F8B70",
+      "rgb": [
+        159,
+        139,
+        112
+      ]
+    },
+    {
+      "hex": "#554B3F",
+      "rgb": [
+        85,
+        75,
+        63
+      ]
+    },
+    {
+      "hex": "#616766",
+      "rgb": [
+        97,
+        103,
+        102
+      ]
+    },
+    {
+      "hex": "#909D8D",
+      "rgb": [
+        144,
+        157,
+        141
+      ]
+    },
+    {
+      "hex": "#585A5D",
+      "rgb": [
+        88,
+        90,
+        93
+      ]
+    },
+    {
+      "hex": "#424540",
+      "rgb": [
+        66,
+        69,
+        64
+      ]
+    },
+    {
+      "hex": "#848D9C",
+      "rgb": [
+        132,
+        141,
+        156
+      ]
+    },
+    {
+      "hex": "#8C8C9C",
+      "rgb": [
+        140,
+        140,
+        156
+      ]
+    }
+  ]
+}

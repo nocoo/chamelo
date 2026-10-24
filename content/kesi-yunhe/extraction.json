@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/kesi-yunhe/original.png",
+  "sourceSha256": "43987a587b07ac1377d6d9d637a560b4f7781e042cde8e6578f854235e69faba",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#CBAA86",
+      "rgb": [
+        203,
+        170,
+        134
+      ]
+    },
+    {
+      "hex": "#402A1B",
+      "rgb": [
+        64,
+        42,
+        27
+      ]
+    },
+    {
+      "hex": "#957356",
+      "rgb": [
+        149,
+        115,
+        86
+      ]
+    },
+    {
+      "hex": "#150B05",
+      "rgb": [
+        21,
+        11,
+        5
+      ]
+    },
+    {
+      "hex": "#68462C",
+      "rgb": [
+        104,
+        70,
+        44
+      ]
+    },
+    {
+      "hex": "#725941",
+      "rgb": [
+        114,
+        89,
+        65
+      ]
+    },
+    {
+      "hex": "#AAA597",
+      "rgb": [
+        170,
+        165,
+        151
+      ]
+    },
+    {
+      "hex": "#796E5E",
+      "rgb": [
+        121,
+        110,
+        94
+      ]
+    },
+    {
+      "hex": "#A39A94",
+      "rgb": [
+        163,
+        154,
+        148
+      ]
+    },
+    {
+      "hex": "#72635C",
+      "rgb": [
+        114,
+        99,
+        92
+      ]
+    },
+    {
+      "hex": "#B45C44",
+      "rgb": [
+        180,
+        92,
+        68
+      ]
+    }
+  ]
+}

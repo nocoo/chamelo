@@ -1,0 +1,99 @@
+{
+  "source": "public/artworks/guanghan-qinghui/original.png",
+  "sourceSha256": "ffbfebab71ed2a3b75f7a5c747d22b88012cd55ef39ee7f017f1f407ce416de0",
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-image-2.5-sunburst",
+  "method": "Modified median-cut quantization of a 240px sRGB sample, 12 candidates.",
+  "note": "Candidates are source evidence, not a finished web theme. Semantic tokens are curated separately for contrast and hierarchy.",
+  "candidates": [
+    {
+      "hex": "#C7C4C5",
+      "rgb": [
+        199,
+        196,
+        197
+      ]
+    },
+    {
+      "hex": "#363C49",
+      "rgb": [
+        54,
+        60,
+        73
+      ]
+    },
+    {
+      "hex": "#8A8F9B",
+      "rgb": [
+        138,
+        143,
+        155
+      ]
+    },
+    {
+      "hex": "#1B1C1E",
+      "rgb": [
+        27,
+        28,
+        30
+      ]
+    },
+    {
+      "hex": "#687285",
+      "rgb": [
+        104,
+        114,
+        133
+      ]
+    },
+    {
+      "hex": "#616876",
+      "rgb": [
+        97,
+        104,
+        118
+      ]
+    },
+    {
+      "hex": "#727C8C",
+      "rgb": [
+        114,
+        124,
+        140
+      ]
+    },
+    {
+      "hex": "#515E6F",
+      "rgb": [
+        81,
+        94,
+        111
+      ]
+    },
+    {
+      "hex": "#A3ACB1",
+      "rgb": [
+        163,
+        172,
+        177
+      ]
+    },
+    {
+      "hex": "#A1A3B4",
+      "rgb": [
+        161,
+        163,
+        180
+      ]
+    },
+    {
+      "hex": "#141C2C",
+      "rgb": [
+        20,
+        28,
+        44
+      ]
+    }
+  ]
+}
