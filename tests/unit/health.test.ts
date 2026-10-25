@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { assertLiveResponse } from '../../scripts/lib/health';
 
-const version = '0.2.0';
+const version = '0.2.1';
 const payload = { status: 'ok', name: 'chamelo', version };
 const headers = { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' };
 
@@ -59,7 +59,7 @@ describe('production health contract', () => {
     { ...payload, version: '0.1.0' },
   ])('rejects incorrect product or version metadata: %j', (body) => {
     expect(() => assertLiveResponse(new Response(null, { headers }), body, version)).toThrow(
-      'Chamelo v0.2.0',
+      'Chamelo v0.2.1',
     );
   });
 });
