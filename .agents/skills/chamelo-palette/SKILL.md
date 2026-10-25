@@ -1,4 +1,5 @@
 ---
+
 name: chamelo-palette
 description: Author or revise a Chamelo palette end to end — culturally situated scene artwork, archived prompt and extraction evidence, six curated swatches from the traditional colour vocabulary, twelve semantic tokens, 60/30/10 proportions, contrast verification — and promote it from draft to published. Use for adding, regenerating or auditing Chamelo artworks and palettes; Chinese triggers 新增色板, 生成配图, 重做配图, 策展配色.
 ---
@@ -107,7 +108,10 @@ Then capture the palette at 1440x900 and 390x844 through the dev server, checkin
 ```js
 import pw from './node_modules/playwright/index.js';
 const browser = await pw.chromium.launch({ channel: 'chrome' });
-const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
+const page = await browser.newPage({
+  viewport: { width: 1440, height: 900 },
+  deviceScaleFactor: 2,
+});
 await page.goto('https://chamelo.dev.hexly.ai/', { waitUntil: 'networkidle' });
 await page.getByLabel('搜索色板').fill('<palette name>');
 await page.waitForTimeout(700);

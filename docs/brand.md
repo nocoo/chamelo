@@ -11,16 +11,16 @@ leaves roughly half of the square empty.
 
 ## Masters
 
-| Path | Role | Source |
-| --- | --- | --- |
-| `logo.png` | Transparent 2048 × 2048 master | `chamelo-transparent-2048.png`, copied byte for byte |
-| `assets/brand/icon.png` | Opaque square 2048 × 2048 presentation, weathered plaster field | `chamelo-icon-2048.png` |
-| `assets/brand/icon-rounded.png` | Rounded 2048 × 2048 presentation | `chamelo-rounded-2048.png` |
-| `public/brand/mark-64.png` | Header mark beside 守宫 | Hexly `transparent-64.png`, byte copy |
-| `public/brand/mark-32.png` | Browser tab, 32 px | Hexly `transparent-32.png`, byte copy |
-| `public/brand/mark-16.png` | Browser tab, 16 px | Hexly `transparent-16.png`, byte copy |
-| `public/brand/hexly-mark.svg` | Hexly family link in the header | Hexly brand kit `hexly-mark.svg`, byte copy |
-| `public/apple-touch-icon.png` | 180 × 180 iOS/PWA icon, resampled from the square master | `assets/brand/icon.png` |
+| Path                            | Role                                                            | Source                                               |
+| ------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------- |
+| `logo.png`                      | Transparent 2048 × 2048 master                                  | `chamelo-transparent-2048.png`, copied byte for byte |
+| `assets/brand/icon.png`         | Opaque square 2048 × 2048 presentation, weathered plaster field | `chamelo-icon-2048.png`                              |
+| `assets/brand/icon-rounded.png` | Rounded 2048 × 2048 presentation                                | `chamelo-rounded-2048.png`                           |
+| `public/brand/mark-64.png`      | Header mark beside 守宫                                         | Hexly `transparent-64.png`, byte copy                |
+| `public/brand/mark-32.png`      | Browser tab, 32 px                                              | Hexly `transparent-32.png`, byte copy                |
+| `public/brand/mark-16.png`      | Browser tab, 16 px                                              | Hexly `transparent-16.png`, byte copy                |
+| `public/brand/hexly-mark.svg`   | Hexly family link in the header                                 | Hexly brand kit `hexly-mark.svg`, byte copy          |
+| `public/apple-touch-icon.png`   | 180 × 180 iOS/PWA icon, resampled from the square master        | `assets/brand/icon.png`                              |
 
 Hashes: `logo.png` `338f4041…`, `icon.png` `343be998…`, `icon-rounded.png`
 `6355fba8…`, `mark-64.png` `e69a30e2…`, `mark-32.png` `b5a8b99c…`,

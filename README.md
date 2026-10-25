@@ -80,16 +80,16 @@ bun run check          # Biome + 严格类型检查 + 覆盖率测试
 
 ## 技术栈
 
-| 技术 | 用途 |
-| --- | --- |
-| React 19 + Vite | 单页界面、构建与本地开发服务 |
-| TypeScript（严格模式） | 模型、服务与视图的类型约束 |
-| culori | 色值转换、色彩空间互转与 WCAG 对比度计算 |
-| liquid-glass-web-react | 原图上的液态玻璃放大镜效果 |
-| Biome | 格式化与静态检查 |
-| Vitest | 单元测试与覆盖率 |
-| Playwright | 端到端测试框架（用例待补） |
-| Cloudflare Workers + Wrangler | 静态资源托管与部署 |
+| 技术                          | 用途                                     |
+| ----------------------------- | ---------------------------------------- |
+| React 19 + Vite               | 单页界面、构建与本地开发服务             |
+| TypeScript（严格模式）        | 模型、服务与视图的类型约束               |
+| culori                        | 色值转换、色彩空间互转与 WCAG 对比度计算 |
+| liquid-glass-web-react        | 原图上的液态玻璃放大镜效果               |
+| Biome                         | 格式化与静态检查                         |
+| Vitest                        | 单元测试与覆盖率                         |
+| Playwright                    | 端到端测试框架（用例待补）               |
+| Cloudflare Workers + Wrangler | 静态资源托管与部署                       |
 
 ## 文档
 
