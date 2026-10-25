@@ -14,8 +14,8 @@ jobs:
   quality:
     uses: nocoo/base-ci/.github/workflows/quality.yml@ac635753a869cb85fad1f52aae4ccbd6119f3cae
     with:
-      runtime-version: '1.4.3'
-      node-version: '26.12.1'
+      runtime-version: "1.4.3"
+      node-version: "26.12.1"
       install-policy: blocked
       typecheck-command: bun run typecheck
       lint-command: bun run lint

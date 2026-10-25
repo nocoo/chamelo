@@ -80,16 +80,16 @@ Unit tests cover colour conversion and contrast maths, the catalogue contract (s
 
 ## Stack
 
-| Technology | Role |
-| --- | --- |
-| React 19 + Vite | Single-page interface, build and local dev server |
-| TypeScript (strict) | Types for models, services and views |
-| culori | Colour conversion, colour space maths and WCAG contrast |
-| liquid-glass-web-react | Liquid-glass lens over the original artwork |
-| Biome | Formatting and static analysis |
-| Vitest | Unit tests and coverage |
-| Playwright | End-to-end framework (cases pending) |
-| Cloudflare Workers + Wrangler | Static asset hosting and deployment |
+| Technology                    | Role                                                    |
+| ----------------------------- | ------------------------------------------------------- |
+| React 19 + Vite               | Single-page interface, build and local dev server       |
+| TypeScript (strict)           | Types for models, services and views                    |
+| culori                        | Colour conversion, colour space maths and WCAG contrast |
+| liquid-glass-web-react        | Liquid-glass lens over the original artwork             |
+| Biome                         | Formatting and static analysis                          |
+| Vitest                        | Unit tests and coverage                                 |
+| Playwright                    | End-to-end framework (cases pending)                    |
+| Cloudflare Workers + Wrangler | Static asset hosting and deployment                     |
 
 ## Documentation
 

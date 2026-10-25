@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.1 - 2026-10-25
+
+- chore(deps): bump @biomejs/biome, lucide-react, vite and wrangler
+
 ## v0.2.0 - 2026-10-24
 
 - 082ebee docs: rewrite the README in Chinese and English
