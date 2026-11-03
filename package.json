@@ -1,7 +1,7 @@
 {
   "name": "chamelo",
   "private": true,
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "description": "Chinese cultural imagery, curated into considered website color systems.",
   "packageManager": "bun@1.4.3",
@@ -38,10 +38,10 @@
     "liquid-glass-web-react": "0.1.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.3",
+    "@biomejs/biome": "2.6.4",
     "@playwright/test": "1.64.1",
     "@types/culori": "4.0.1",
-    "@types/node": "26.6.5",
+    "@types/node": "26.6.6",
     "@types/quantize": "1.0.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
@@ -53,6 +53,6 @@
     "typescript": "7.0.2",
     "vite": "8.3.5",
     "vitest": "5.0.5",
-    "wrangler": "4.152.0"
+    "wrangler": "4.156.2"
   }
 }
