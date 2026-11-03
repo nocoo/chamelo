@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.2 - 2026-11-03
+
+- chore(deps): bump wrangler, @types/node and @biomejs/biome
+
 ## v0.2.1 - 2026-10-25
 
 - chore(deps): bump @biomejs/biome, lucide-react, vite and wrangler
