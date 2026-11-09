@@ -56,10 +56,17 @@ bun run typecheck
 bun run test
 bun run test:coverage
 bun run check
+bun run verify:l1-gate
 bun run release -- --dry-run
 ```
 
-`bun run check` is the pre-commit entrypoint: Biome with warning rejection, strict TypeScript, and Vitest V8 coverage with statements/branches/functions/lines each >=95%. Husky materializes the index into an owned temporary repository before checking. Coverage scope is pure services, viewmodels and `scripts/lib`; view rendering, event wiring and script orchestration are outside this first scope. Detailed browser verification and hook rejection probes remain unverified; do not claim an L1 grade or full 6DQ certification from the initial checks.
+### L1 pre-commit gate (6DQ S-grade evidence)
+
+Entrypoint: Husky `.husky/pre-commit` materialises the git index into an owned snapshot under `$TMPDIR/chamelo-index.*`, symlinks `node_modules`, then runs `bun run lint`, `bun run typecheck`, and `bun scripts/unit-coverage-gate.ts` with a **25s** child timeout (exit **124** on expiry, **127** if `bun` is missing). `bun run check` is the same three steps for local/CI quality. `scripts/unit-coverage-gate.ts` runs Vitest with V8 coverage, rejects empty suites, skipped or pending tests, `.only`, and missing `coverage/coverage-summary.json`, and re-checks statements/branches/functions/lines each **≥95%**.
+
+Latest measured `bun run check` on this tree: statements **99.4%**, branches **99.09%**, functions **100%**, lines **99.35%**, wall time **~2s** (Vitest phase **~0.7s**). Coverage scope remains pure services, viewmodels and `scripts/lib`; view rendering, event wiring and script orchestration stay outside this first scope.
+
+Repeatable proof: `bun run verify:l1-gate` builds isolated fixtures, runs the real pre-commit hook, and cleans up. It passes a healthy snapshot, and rejects: unit failure; overall and per-metric coverage shortfall; lint error; lint-only warning (`--error-on-warnings`); type error; `test.only` / `test.skip`; staged bad code with a clean worktree; hung lint (exit **1** or **124**); missing `bun`; missing JSON coverage summary; weakened `package.json` `check` script (hook ignores it). CI job **`L1: Pre-commit proof`** runs the same script.
 
 ## Local And Deployment
 

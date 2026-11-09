@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Harden L1 pre-commit: explicit lint/types/unit-coverage path, skip/empty/summary checks, and `bun run verify:l1-gate` with CI proof.
+
 ## v0.2.2 - 2026-11-03
 
 - chore(deps): bump wrangler, @types/node and @biomejs/biome
