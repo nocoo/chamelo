@@ -10,4 +10,15 @@ git checkout-index --all --prefix="$snapshot/"
 git init --quiet "$snapshot"
 ln -s "$root/node_modules" "$snapshot/node_modules"
 cd "$snapshot"
-node --input-type=module -e 'import { spawnSync } from "node:child_process"; const result = spawnSync("bun", ["run", "check"], { stdio: "inherit", timeout: 25000 }); process.exit(result.status ?? 1);'
+node --input-type=module -e 'import { spawnSync } from "node:child_process";
+const TIMEOUT = 25_000;
+function run(args) {
+  const result = spawnSync("bun", args, { stdio: "inherit", timeout: TIMEOUT });
+  if (result.error?.code === "ETIMEDOUT") process.exit(124);
+  if (result.error) process.exit(127);
+  if (result.signal) process.exit(result.status ?? 1);
+  if (result.status !== 0) process.exit(result.status ?? 1);
+}
+run(["run", "lint"]);
+run(["run", "typecheck"]);
+run(["scripts/unit-coverage-gate.ts"]);'
