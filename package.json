@@ -19,7 +19,7 @@
     "format": "biome check --write .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "bun scripts/unit-coverage-gate.ts",
     "test:e2e": "playwright test",
     "check": "bun run lint && bun run typecheck && bun run test:coverage",
     "artwork:prepare": "bun scripts/prepare-artwork.ts",
