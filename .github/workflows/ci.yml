@@ -13,8 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  l1-gate-proof:
-    name: "L1: Pre-commit proof"
+  pre-commit-gate-proof:
+    name: "Pre-commit gate proof"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -31,7 +31,7 @@ jobs:
           node-version: "26.12.1"
           install-policy: blocked
 
-      - name: Run L1 gate self-test
+      - name: Run pre-commit gate self-test
         run: bun run verify:l1-gate
 
   quality:
