@@ -60,13 +60,26 @@ bun run verify:l1-gate
 bun run release -- --dry-run
 ```
 
-### L1 pre-commit gate (6DQ S-grade evidence)
+### Verification
 
-Entrypoint: Husky `.husky/pre-commit` materialises the git index into an owned snapshot under `$TMPDIR/chamelo-index.*`, symlinks `node_modules`, then runs `bun run lint`, `bun run typecheck`, and `bun scripts/unit-coverage-gate.ts` with a **25s** child timeout (exit **124** on expiry, **127** if `bun` is missing). `bun run check` is the same three steps for local/CI quality. `scripts/unit-coverage-gate.ts` runs Vitest with V8 coverage, rejects empty suites, skipped or pending tests, `.only`, and missing `coverage/coverage-summary.json`, and re-checks statements/branches/functions/lines each **≥95%**.
+Quality follows System1 v1.3.0 Native Mode (`nocoo/base-ci v2026.15`) in `.github/workflows/quality-slots.yml` and `.github/workflows/ci.yml`. Statuses: `enforced`, `planned`, `manual`, `N/A`.
 
-Latest measured `bun run check` on this tree: statements **99.4%**, branches **99.09%**, functions **100%**, lines **99.35%**, wall time **~2s** (Vitest phase **~0.7s**). Coverage scope remains pure services, viewmodels and `scripts/lib`; view rendering, event wiring and script orchestration stay outside this first scope.
+| Slot              | Status   | Evidence                                                                                           |
+| ----------------- | -------- | -------------------------------------------------------------------------------------------------- |
+| `S1` Types        | enforced | `bun run typecheck` (pre-commit + CI)                                                              |
+| `S2` Lint         | enforced | `bun run lint` (pre-commit + CI)                                                                   |
+| `S3` Workflow     | enforced | SHA-pinned workflow action check in CI                                                             |
+| `G1` Secrets      | enforced | `gitleaks` scan in CI                                                                              |
+| `G2` Dependencies | enforced | `osv-scanner` scan (`bun.lock`) in CI                                                              |
+| `B1` Build        | enforced | `bun run build` in CI                                                                              |
+| `L1` Unit         | enforced | `bun run test:coverage` + `scripts/unit-coverage-gate.ts` (≥95% floors) + `bun run verify:l1-gate` |
+| `L2` Runtime      | N/A      | Static assets deployed to Cloudflare Worker                                                        |
+| `L3` Integration  | N/A      | Static site without application API                                                                |
+| `L4` E2E          | planned  | Playwright config ready; `tests/e2e` not yet wired in CI                                           |
+| `P1` Package      | N/A      | Private repo, not published to npm                                                                 |
+| `Z1` Gate         | enforced | `quality / Z1: Gate` required status check on `main` (includes `pre-commit-gate-proof`)            |
 
-Repeatable proof: `bun run verify:l1-gate` builds isolated fixtures, runs the real pre-commit hook, and cleans up. It passes a healthy snapshot, and rejects: unit failure; overall and per-metric coverage shortfall; lint error; lint-only warning (`--error-on-warnings`); type error; `test.only` / `test.skip`; staged bad code with a clean worktree; hung lint (exit **1** or **124**); missing `bun`; missing JSON coverage summary; weakened `package.json` `check` script (hook ignores it). CI job **`L1: Pre-commit proof`** runs the same script.
+Entrypoint: Husky `.husky/pre-commit` materialises the git index into an owned snapshot under `$TMPDIR/chamelo-index.*`, symlinks `node_modules`, then runs `bun run lint`, `bun run typecheck`, and `bun scripts/unit-coverage-gate.ts` with a **25s** child timeout (exit **124** on expiry, **127** if `bun` is missing). `bun run check` is the same three steps for local/CI quality. Repeatable proof: `bun run verify:l1-gate`.
 
 ## Local And Deployment
 
