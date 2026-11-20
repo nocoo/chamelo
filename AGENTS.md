@@ -1,97 +1,63 @@
-# Chamelo (display name 守宫)
+# Chamelo (守宫)
 
-A Chinese-cultural colour atlas. Codename: Chameleon. The first edition is Dunhuang Splendour.
-
-## Product Invariants
-
-- Generate original cultural imagery, extract candidate colours, then deliberately curate a usable website theme. Do not present raw pixel extraction as professional colour pairing.
-- Every published palette includes a source image, six curated swatches, twelve semantic roles, recommended proportions, a website preview, and complete CSS/agent-prompt export. Draft concepts are TODO placeholders: no artwork, no hex values, no exports.
-- The explorer shows one selected entry at a time. Selection drives the site's semantic colours, atmosphere and exports; swatch clicks only copy. Respect reduced motion and never publish testing palettes or incomplete concepts as generated content.
-- `src/data/palettes.ts` holds published palettes; `src/data/draft-palettes.ts` holds TODO concepts whose only colour data is a traditional-colour direction. Models and pure services stay separate from React views.
-- Current Safari and Chrome, including iPhone Safari, are primary targets. Native responsive layouts and dialogs must not depend on hover. Liquid refraction affects artwork only, never essential text or controls.
-- Visual direction: contemporary editorial typography, mineral hues, restrained glass and meaningful density. No inherited UI template or component library is required.
-- Desktop viewports at least 1024px wide and 650px tall use a full-width, viewport-height composition. Smaller or zoomed viewports scroll naturally. Keep essential controls visible instead of masking document overflow.
-- Interface copy is Chinese; code, documentation and comments are English. Preserve cultural names in content.
-- Do not add a login, CMS, public generation API, compatibility wrapper or speculative storage layer without a concrete requirement.
-
-## Identity And Chrome
-
-- The interface is named 守宫 and shows no English brand wordmark. Repository, package, Worker, domain and asset slugs stay `chamelo`; only the display name changes.
-- Brand bytes come from the Hexly study: header mark `/brand/mark-64.png`, browser tab `/brand/mark-32.png` and `/brand/mark-16.png`, iOS icon a 180 px resample of `assets/brand/icon.png`, family link `/brand/hexly-mark.svg`. Never redraw, recolour or crop them; see [brand identity](docs/brand.md).
-- The header carries four icon actions in one row: the Hexly family link, the GitHub repository, the light/dark switch and the guide. The guide has no text label; keep its `aria-label` and `title`.
-- Each palette declares `mode`, and the switch derives the opposite mode from that palette's swatch evidence through `src/services/appearance.ts`. The derivation must keep all `themeContrastChecks` passing; curated tokens stay authoritative for exports and the mini preview.
-
-## Palette Authoring
-
-- Follow `.agents/skills/chamelo-palette/SKILL.md` for every new or revised palette: scene brief, canonical prompt tail, generation and archiving, extraction evidence, curation, promotion, browser verification. It is the authority for the house style; this file only states the invariants.
-- Artwork is a culturally situated scene — a hall, chamber, workshop, courtyard, garden, river or cave — with the motif as one element inside three depths. Never a tabletop object study, never a bare empty room.
-- Six swatches use names from `src/data/traditional-colours.ts`; colours must be evidenced by the image's pixels. If the evidence lacks a colour, drop the colour instead of inventing a swatch.
-- Every palette declares `mode: 'light' | 'dark'` to match its scene. Night interiors, grottoes and lamplit studies are dark pages; workshops, courtyards and weather scenes are light ones. The collection must keep both modes, and the 60% distribution band repeats `theme.background`.
-- Rejected artwork attempts stay under `content/<id>/archive/attempt-NN-<reason>.png`; the accepted original stays unchanged at `public/artworks/<id>/original.png`.
-- Verify a promotion in a browser at 1440x900 and 390x844 before committing, and record the promotion under `Unreleased` in `CHANGELOG.md`.
-
-## Generation And Secrets
-
-- Use `gpt-image-2.5-sunburst` for approved artwork. Original PNGs remain unchanged; WebP files are delivery derivatives.
-- Store exact prompts and non-secret extraction evidence under `content/`.
-- Root `.env` contains `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY` for internal generation only. Never print, track or expose them through `VITE_` variables or client code.
-- `bun run artwork:prepare -- <id> --model gpt-image-2.5-sunburst` processes an archived PNG and prompt without making API calls. Supply the actual generation model; the script cannot infer it from pixels.
-
-## Draft Concepts
-
-- `src/data/draft-palettes.ts` records concepts that have no artwork yet: category, description, tags and a three-slot traditional-colour direction drawn from `src/data/traditional-colours.ts`. A draft carries no hex values, swatches, exports, preview or provenance.
-- The catalogue includes drafts only when `import.meta.env.DEV` is true, so production builds never ship ungenerated ideas. Keep this build-time guard; do not replace it with a runtime flag or a hidden route.
-- Catalogue numbers derive from position in `src/data/collection.ts`. Never store a number in the data; reordering or publishing renumbers automatically.
-- Promote a concept only after its artwork passes review: generate with `gpt-image-2.5-sunburst`, run `bun run artwork:prepare -- <id> --model gpt-image-2.5-sunburst`, keep the prompt and extraction evidence under `content/<id>/`, curate six swatches, twelve semantic roles and the 60/30/10 proportions, and add story, art direction and provenance. Then move the entry into `src/data/palettes.ts` with `status: 'published'` and delete it from `draft-palettes.ts`. The 待生成 ribbon, TODO marking and local-only guard disappear with the draft entry.
-- Run `bun run check` and review the entry in a local browser before committing a promotion. A draft must never be presented as curated content, and a promoted entry must never keep placeholder copy.
+Chinese-cultural colour atlas (codename Chameleon, first edition Dunhuang Splendour) built as a React 19 + Vite static SPA deployed to Cloudflare Workers (`chamelo.hexly.ai`).
+Docs: [README.md](README.md) · [Product Spec](docs/01-product-spec.md) · [Brand](docs/brand.md) · [Releasing](docs/releasing.md) · [Palette Authoring](.agents/skills/chamelo-palette/SKILL.md) · [Retrospective](Retrospective.md)
 
 ## Commands
 
+Run from root with Bun `1.4.3` and Node `>=22.12.0` (CI uses Node `26.12.1`). Local env names live in `.env.example`.
+
 ```sh
 bun install
-bun run dev
-bun run build
-bun run lint
-bun run typecheck
-bun run test
-bun run test:coverage
-bun run check
-bun run verify:l1-gate
+bun run dev             # https://chamelo.dev.hexly.ai -> 127.0.0.1:7061
+bun run typecheck       # S1: tsc --noEmit
+bun run lint            # S2: Biome check-only, 0 warnings
+bun run test            # Unit tests
+bun run test:coverage   # L1: >=95% coverage gate
+bun run check           # S2 + S1 + L1 combined gate
+bun run verify:l1-gate  # L1 / pre-commit proof
+bun run build           # B1: typecheck + build
+bun run artwork:prepare -- <id> --model gpt-image-2.5-sunburst
 bun run release -- --dry-run
+bun run verify:production
 ```
 
-### Verification
+## Invariants
 
-Quality follows System1 v1.3.0 Native Mode (`nocoo/base-ci v2026.15`) in `.github/workflows/quality-slots.yml` and `.github/workflows/ci.yml`. Statuses: `enforced`, `planned`, `manual`, `N/A`.
+- **Curation & scope**: Curate themes from original imagery + extraction; never ship raw pixel averages as pairing. No login, CMS, public generation API, compat wrapper, or speculative storage.
+- **Language & brand**: UI copy is Chinese (keep cultural names); code/docs are English. Display name `守宫` (no English wordmark; slugs stay `chamelo`); never alter Hexly marks ([brand.md](docs/brand.md)).
+- **Data & drafts**: `src/data/palettes.ts` holds published palettes; `src/data/draft-palettes.ts` holds TODO concepts (no artwork, hex, exports, or provenance). Keep models/services separate from React views.
+- **Draft guard & numbering**: Load drafts only when `import.meta.env.DEV` is true (never a runtime flag or hidden route). Derive catalogue numbers from `src/data/collection.ts` position; never store numbers.
+- **Mode & band**: Declare scene-matched `mode: 'light' | 'dark'` (keep both modes); 60% distribution band repeats `theme.background`.
+- **Opposite-mode switch**: `src/services/appearance.ts` derives the toggled mode from swatch evidence passing `themeContrastChecks`; curated tokens stay authoritative for exports and preview.
+- **UI & browsers**: Target Safari/Chrome (incl. iPhone), hover-free, reduced-motion safe; liquid refraction on artwork only, never text/controls. Layout & chrome: [Product Spec](docs/01-product-spec.md).
+- **Authoring**: Follow [chamelo-palette](.agents/skills/chamelo-palette/SKILL.md): culturally situated scenes (no tabletop studies) and 6 pixel-evidenced swatches from `src/data/traditional-colours.ts`.
+- **Artwork & archives**: Use `gpt-image-2.5-sunburst`; keep originals at `public/artworks/<id>/original.png`, rejected attempts under `content/<id>/archive/`, and prompts/evidence/WebP derivatives intact.
+- **Offline prep**: `bun run artwork:prepare` runs offline (no API calls) and requires explicit `--model` (cannot infer from pixels).
+- **Promotion**: Pass `bun run check`, inspect at `1440x900`/`390x844`, strip placeholders, and log under `Unreleased` in `CHANGELOG.md` before committing.
+- **Secrets**: Root `.env` holds `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY` for internal generation only; never print, track, or expose via `VITE_` vars or client code.
+- **Version & health**: `package.json` is the sole version source; `/api/live` is a static liveness artifact (not an Azure/DB probe), and `bun run release` commits locally only ([releasing.md](docs/releasing.md)).
+- **CD & release**: Main-push CI success triggers production CD (`.github/workflows/release.yml`) — never push unfinished work assuming it is deploy-free. Publish via authorized CD, not local `bun run deploy`.
 
-| Slot              | Status   | Evidence                                                                                           |
-| ----------------- | -------- | -------------------------------------------------------------------------------------------------- |
-| `S1` Types        | enforced | `bun run typecheck` (pre-commit + CI)                                                              |
-| `S2` Lint         | enforced | `bun run lint` (pre-commit + CI)                                                                   |
-| `S3` Workflow     | enforced | SHA-pinned workflow action check in CI                                                             |
-| `G1` Secrets      | enforced | `gitleaks` scan in CI                                                                              |
-| `G2` Dependencies | enforced | `osv-scanner` scan (`bun.lock`) in CI                                                              |
-| `B1` Build        | enforced | `bun run build` in CI                                                                              |
-| `L1` Unit         | enforced | `bun run test:coverage` + `scripts/unit-coverage-gate.ts` (≥95% floors) + `bun run verify:l1-gate` |
-| `L2` Runtime      | N/A      | Static assets deployed to Cloudflare Worker                                                        |
-| `L3` Integration  | N/A      | Static site without application API                                                                |
-| `L4` E2E          | planned  | Playwright config ready; `tests/e2e` not yet wired in CI                                           |
-| `P1` Package      | N/A      | Private repo, not published to npm                                                                 |
-| `Z1` Gate         | enforced | `quality / Z1: Gate` required status check on `main` (includes `pre-commit-gate-proof`)            |
+## Quality & Local Gates
 
-Entrypoint: Husky `.husky/pre-commit` materialises the git index into an owned snapshot under `$TMPDIR/chamelo-index.*`, symlinks `node_modules`, then runs `bun run lint`, `bun run typecheck`, and `bun scripts/unit-coverage-gate.ts` with a **25s** child timeout (exit **124** on expiry, **127** if `bun` is missing). `bun run check` is the same three steps for local/CI quality. Repeatable proof: `bun run verify:l1-gate`.
+Follows `system1-quality`; CI slots and pinned `base-ci` live in `.github/workflows/quality-slots.yml` (`quality / Z1: Gate` required on `main`, incl. `pre-commit-gate-proof`). Status: `enforced`, `planned`, `manual`, `N/A`.
 
-## Local And Deployment
+- **Coverage**: `L1` enforces >=95% statements/branches/functions/lines on `src/services/**/*.ts`, `src/viewmodels/**/*.ts`, and `scripts/lib/**/*.ts` (no empty/pending suites).
+- **Exceptions**: `L2 Runtime`, `L3 Integration`, `P1 Package` are `N/A` (private static Worker SPA, no app API); `L4 E2E` is `planned` (Playwright on `27061`, `tests/e2e` not yet in CI).
+- **Local hooks**: `bun run prepare` installs `.husky/pre-commit` (no `pre-push` yet); runs `lint`, `typecheck`, and `scripts/unit-coverage-gate.ts` on a staged snapshot in `$TMPDIR/chamelo-index.*`.
+- **Hook timeout & proof**: 25s child timeout per step (exit `124` timeout, `127` missing `bun`), symlinked `node_modules`; proof via `bun run verify:l1-gate`.
 
-- Local: `https://chamelo.dev.hexly.ai` -> `127.0.0.1:7061`.
-- Reserved test ports: E2E `17061`, browser/BDD `27061`.
-- Keep normal dev servers in the current Herdr space's `dev server` tab.
-- Caddy mapping is maintained in `/opt/homebrew/etc/Caddyfile` and `../workflow/caddy/Caddyfile`. Existing wildcard DNS and certificates cover the local hostname; no certificate regeneration is required.
-- `nmem` was unavailable during initial allocation. Ports were checked against both Caddyfiles and bind availability; memory registration is pending.
-- Production: `chamelo.hexly.ai`, Cloudflare Worker static assets. Main-push CI success triggers CD through the pinned `base-ci` workflows; do not push unfinished work assuming it is deployment-free. Publishing requires authorization; use CD rather than a local deployment.
-- `package.json` is the sole authoritative version. Stage only explicit task paths and make passing atomic commits; do not push unless asked.
-- `/api/live` is a versioned static-build liveness artifact, not an Azure or database probe. See [versioning and release](docs/releasing.md); the release script prepares a local commit only.
+## Resources & Isolation
+
+| Lane  | Endpoint / State                         | Boundary                                                    |
+| ----- | ---------------------------------------- | ----------------------------------------------------------- |
+| Dev   | `chamelo.dev.hexly.ai -> 127.0.0.1:7061` | Herdr `dev server` tab; Caddy `/opt/homebrew/etc/Caddyfile` |
+| Tests | E2E `17061`, browser/BDD `27061`         | Isolated ports; Playwright launches fresh on `27061`        |
+| Prod  | `https://chamelo.hexly.ai`               | CF Worker static assets; read-only unless authorized        |
+
+Caddy source: `system0/services/caddy/Caddyfile`; wildcard DNS/certs already cover `https://chamelo.dev.hexly.ai`.
 
 ## Retrospective
 
-Record failures and lessons in root `Retrospective.md`, not this handbook.
+Record incident narratives in [Retrospective.md](Retrospective.md); promote recurring project constraints to `Invariants` above and enforceable safeguards to tests/hooks.
