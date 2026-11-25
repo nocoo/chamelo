@@ -41,7 +41,7 @@ bun run verify:production
 
 ## Quality & Local Gates
 
-Follows `system1-quality`; CI slots and pinned `base-ci` live in `.github/workflows/quality-slots.yml` (`quality / Z1: Gate` required on `main`, incl. `pre-commit-gate-proof`). Status: `enforced`, `planned`, `manual`, `N/A`.
+Follows `system1-quality`; CI slots and pinned `base-ci` live in `.github/workflows/quality-slots.yml` (`quality / Z1: Gate` required on `main`, incl. `l1-precommit-gate`). Status: `enforced`, `planned`, `manual`, `N/A`.
 
 - **Coverage**: `L1` enforces >=95% statements/branches/functions/lines on `src/services/**/*.ts`, `src/viewmodels/**/*.ts`, and `scripts/lib/**/*.ts` (no empty/pending suites).
 - **Exceptions**: `L2 Runtime`, `L3 Integration`, `P1 Package` are `N/A` (private static Worker SPA, no app API); `L4 E2E` is `planned` (Playwright on `27061`, `tests/e2e` not yet in CI).

@@ -139,8 +139,8 @@ jobs:
     steps:
       - run: echo "N/A - private repo, not published to npm"
 
-  pre-commit-gate-proof:
-    name: "Pre-commit gate proof"
+  l1-precommit-gate:
+    name: "L1: Unit (Pre-commit Gate)"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
@@ -173,7 +173,7 @@ jobs:
       - l3-integration
       - l4-e2e
       - p1-package
-      - pre-commit-gate-proof
+      - l1-precommit-gate
     outputs:
       tested-sha: ${{ github.sha }}
     steps:
@@ -190,7 +190,7 @@ jobs:
           echo "l3-integration: ${{ needs.l3-integration.result }}"
           echo "l4-e2e: ${{ needs.l4-e2e.result }}"
           echo "p1-package: ${{ needs.p1-package.result }}"
-          echo "pre-commit-gate-proof: ${{ needs.pre-commit-gate-proof.result }}"
+          echo "l1-precommit-gate: ${{ needs.l1-precommit-gate.result }}"
           for r in \
             "${{ needs.s1-types.result }}" \
             "${{ needs.s2-lint.result }}" \
@@ -199,7 +199,7 @@ jobs:
             "${{ needs.g2-dependencies.result }}" \
             "${{ needs.b1-build.result }}" \
             "${{ needs.l1-unit.result }}" \
-            "${{ needs.pre-commit-gate-proof.result }}"; do
+            "${{ needs.l1-precommit-gate.result }}"; do
             if [ "$r" != "success" ]; then
               echo "Required slot failed or was skipped: $r"
               exit 1
