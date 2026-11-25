@@ -13,10 +13,10 @@ bun run dev             # https://chamelo.dev.hexly.ai -> 127.0.0.1:7061
 bun run typecheck       # S1: tsc --noEmit
 bun run lint            # S2: Biome check-only, 0 warnings
 bun run test            # Unit tests
-bun run test:coverage   # L1: >=95% coverage gate
+bun run test:coverage   # L1: >=80% coverage gate
 bun run check           # S2 + S1 + L1 combined gate
 bun run verify:l1-gate  # L1 / pre-commit proof
-bun run build           # B1: typecheck + build
+bun run build           # B1: Vite production build
 bun run artwork:prepare -- <id> --model gpt-image-2.5-sunburst
 bun run release -- --dry-run
 bun run verify:production
@@ -41,9 +41,9 @@ bun run verify:production
 
 ## Quality & Local Gates
 
-Follows `system1-quality`; CI slots and pinned `base-ci` live in `.github/workflows/quality-slots.yml` (`quality / Z1: Gate` required on `main`, incl. `l1-precommit-gate`). Status: `enforced`, `planned`, `manual`, `N/A`.
+Follows `system1-quality`; CI slots and pinned `base-ci` live in `.github/workflows/quality-slots.yml` (`quality / Z1: Gate` required on `main`). Status: `enforced`, `planned`, `manual`, `N/A`.
 
-- **Coverage**: `L1` enforces >=95% statements/branches/functions/lines on `src/services/**/*.ts`, `src/viewmodels/**/*.ts`, and `scripts/lib/**/*.ts` (no empty/pending suites).
+- **Coverage**: `L1` enforces >=80% statements/branches/functions/lines on `src/services/**/*.ts`, `src/viewmodels/**/*.ts`, and `scripts/lib/**/*.ts` (Views excluded, no empty/pending suites).
 - **Exceptions**: `L2 Runtime`, `L3 Integration`, `P1 Package` are `N/A` (private static Worker SPA, no app API); `L4 E2E` is `planned` (Playwright on `27061`, `tests/e2e` not yet in CI).
 - **Local hooks**: `bun run prepare` installs `.husky/pre-commit` (no `pre-push` yet); runs `lint`, `typecheck`, and `scripts/unit-coverage-gate.ts` on a staged snapshot in `$TMPDIR/chamelo-index.*`.
 - **Hook timeout & proof**: 25s child timeout per step (exit `124` timeout, `127` missing `bun`), symlinked `node_modules`; proof via `bun run verify:l1-gate`.

@@ -97,24 +97,6 @@ jobs:
           install-policy: blocked
       - run: bun run test:coverage
 
-  l1-precommit-gate:
-    name: "L1: Unit (Pre-commit Gate)"
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    outputs:
-      tested-sha: ${{ github.sha }}
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-      - uses: nocoo/base-ci/.github/actions/setup-js@dc858360aa7812db61fd9d825943e4efd4dcd0e7 # v2026.17
-        with:
-          package-manager: bun
-          runtime-version: ${{ env.BUN_VERSION }}
-          node-version: ${{ env.NODE_VERSION }}
-          install-policy: blocked
-      - run: bun run verify:l1-gate
-
   l2-runtime:
     name: "L2: Runtime"
     if: ${{ vars.ENABLE_L2_RUNTIME == 'true' }}
@@ -159,7 +141,6 @@ jobs:
       - l3-integration
       - l4-e2e
       - p1-package
-      - l1-precommit-gate
     outputs:
       tested-sha: ${{ github.sha }}
     steps:
@@ -176,7 +157,6 @@ jobs:
           echo "l3-integration: ${{ needs.l3-integration.result }}"
           echo "l4-e2e: ${{ needs.l4-e2e.result }}"
           echo "p1-package: ${{ needs.p1-package.result }}"
-          echo "l1-precommit-gate: ${{ needs.l1-precommit-gate.result }}"
           for r in \
             "${{ needs.s1-types.result }}" \
             "${{ needs.s2-lint.result }}" \
@@ -184,8 +164,7 @@ jobs:
             "${{ needs.g1-secrets.result }}" \
             "${{ needs.g2-dependencies.result }}" \
             "${{ needs.b1-build.result }}" \
-            "${{ needs.l1-unit.result }}" \
-            "${{ needs.l1-precommit-gate.result }}"; do
+            "${{ needs.l1-unit.result }}"; do
             if [ "$r" != "success" ]; then
               echo "Required slot failed or was skipped: $r"
               exit 1

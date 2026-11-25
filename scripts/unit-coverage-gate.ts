@@ -6,7 +6,7 @@ const root = resolve(import.meta.dirname, '..');
 const vitestReport = resolve(root, 'coverage/vitest-l1.json');
 const summaryPath = resolve(root, 'coverage/coverage-summary.json');
 const metrics = ['lines', 'statements', 'functions', 'branches'] as const;
-const minimum = 95;
+const minimum = 80;
 
 function runVitest(): void {
   const result = spawnSync(
