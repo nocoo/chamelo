@@ -20,7 +20,7 @@ Without an explicit increment, the script defaults to Z+1, promoting to Y+1 when
 
 ## CI And CD
 
-Both workflows pin `nocoo/base-ci` to immutable commit `98fc023423f82b010f17e0ebbc9dd580fe68736a` (`v2026.19`). Update the pin only after inspecting its input and source-proof contracts. Bun matches `packageManager`; Node is pinned separately in both workflows. CI/CD use frozen installs with lifecycle scripts blocked; local installation still sets up Husky.
+Both workflows pin `nocoo/base-ci` to immutable commit `e5876a604547b1ddb0916f16dd841a4f832609a0` (`v2026.20`). Update the pin only after inspecting its input and source-proof contracts. Bun matches `packageManager`; Node is pinned separately in both workflows. CI/CD use frozen installs with lifecycle scripts blocked; local installation still sets up Husky.
 
 - [CI](../.github/workflows/ci.yml) runs on main pushes, main pull requests and manual dispatch. Shared quality runs strict types, warning-free Biome, unit coverage, the production build, Gitleaks and OSV against `bun.lock`. Shared workflow lint checks YAML, action syntax and immutable references.
 - [Release](../.github/workflows/release.yml) is the CD workflow. It accepts only a successful same-repository main-push CI run. Shared source proof checks repository, workflow, branch, event, conclusion and exact SHA; it rechecks that the proven SHA is still main immediately before deployment. PR/fork evidence and unrelated green runs are not valid release inputs.
