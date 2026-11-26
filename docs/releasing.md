@@ -20,12 +20,12 @@ Without an explicit increment, the script defaults to Z+1, promoting to Y+1 when
 
 ## CI And CD
 
-Both workflows pin `nocoo/base-ci` to immutable commit `ac635753a869cb85fad1f52aae4ccbd6119f3cae`. Update the pin only after inspecting its input and source-proof contracts. Bun matches `packageManager`; Node is pinned separately in both workflows. CI/CD use frozen installs with lifecycle scripts blocked; local installation still sets up Husky.
+Both workflows pin `nocoo/base-ci` to immutable commit `98fc023423f82b010f17e0ebbc9dd580fe68736a` (`v2026.19`). Update the pin only after inspecting its input and source-proof contracts. Bun matches `packageManager`; Node is pinned separately in both workflows. CI/CD use frozen installs with lifecycle scripts blocked; local installation still sets up Husky.
 
 - [CI](../.github/workflows/ci.yml) runs on main pushes, main pull requests and manual dispatch. Shared quality runs strict types, warning-free Biome, unit coverage, the production build, Gitleaks and OSV against `bun.lock`. Shared workflow lint checks YAML, action syntax and immutable references.
 - [Release](../.github/workflows/release.yml) is the CD workflow. It accepts only a successful same-repository main-push CI run. Shared source proof checks repository, workflow, branch, event, conclusion and exact SHA; it rechecks that the proven SHA is still main immediately before deployment. PR/fork evidence and unrelated green runs are not valid release inputs.
 - CD checks out that proven SHA, rebuilds it without production credentials, resolves the project-local Wrangler version from the frozen lockfile, and deploys the static assets defined in `wrangler.jsonc`. The production concurrency lock does not cancel an active deployment.
-- The GitHub environment is exactly `production`. Configure only `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` there. The caller forwards exactly those two environment secrets to the reusable deployment job instead of inheriting all repository secrets. Use a deployment API token, not a workstation OAuth session. Azure image-generation credentials never enter GitHub Actions.
+- The GitHub environment is exactly `production`. Configure `CLOUDFLARE_API_TOKEN` as an environment secret and `CLOUDFLARE_ACCOUNT_ID` as an environment variable there. The caller forwards `CLOUDFLARE_API_TOKEN` to the reusable deployment job instead of inheriting all repository secrets, while `base-ci` reads `vars.CLOUDFLARE_ACCOUNT_ID` directly. Use a deployment API token, not a workstation OAuth session. Azure image-generation credentials never enter GitHub Actions.
 
 Production origin: `https://chamelo.hexly.ai`. Deployment registers this Worker's custom domain; no database, remote test resource or migration is needed. The repository currently uses Wrangler, not a migrated `cloudflare.config.ts` project.
 
