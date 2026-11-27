@@ -39,11 +39,11 @@ bun run verify:production
 - **Promotion**: Pass `bun run check`, inspect at `1440x900`/`390x844`, strip placeholders, and log under `Unreleased` in `CHANGELOG.md` before committing.
 - **Secrets**: Root `.env` holds `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY` for internal generation only; never print, track, or expose via `VITE_` vars or client code.
 - **Version & health**: `package.json` is the sole version source; `/api/live` is a static liveness artifact (not an Azure/DB probe), and `bun run release` commits locally only ([releasing.md](docs/releasing.md)).
-- **CD & release**: Main-push CI success triggers production CD (`.github/workflows/release.yml`) — never push unfinished work assuming it is deploy-free. Publish via authorized CD, not local `bun run deploy`.
+- **CD & release**: Main-push CI success triggers production CD in the same `.github/workflows/pipeline.yml` run (`deploy` job, `D1`–`D5` via `deploy-worker.yml`, reusing the `B1` `chamelo-dist` artifact without rebuilding and running `bun run verify:production`) — never push unfinished work assuming it is deploy-free. Publish via authorized CD, not local `bun run deploy`.
 
 ## Quality & Local Gates
 
-Follows `system1-quality`; CI slots and pinned `base-ci` live in `.github/workflows/quality-slots.yml` (`quality / Z1: Gate` required on `main`). Status: `enforced`, `planned`, `manual`, `N/A`.
+Follows `system1-quality`; CI slots and pinned `base-ci` live in `.github/workflows/quality-slots.yml` (called by `.github/workflows/pipeline.yml`; `quality / Z1: Gate` required on `main`). Status: `enforced`, `planned`, `manual`, `N/A`.
 
 - **Coverage**: `L1` enforces >=80% statements/branches/functions/lines on `src/services/**/*.ts`, `src/viewmodels/**/*.ts`, and `scripts/lib/**/*.ts` (Views excluded, no empty/pending suites).
 - **Exceptions**: `L2 Runtime` and `L3 Integration` are `N/A` (private static Worker SPA, no app API); `L4 E2E` (Playwright Chromium on `27061` against `dist` preview) and `P1 Package` (`wrangler deploy --dry-run` on `dist`) are `enforced` in CI.
