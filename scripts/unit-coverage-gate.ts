@@ -5,8 +5,12 @@ import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const vitestReport = resolve(root, 'coverage/vitest-l1.json');
 const summaryPath = resolve(root, 'coverage/coverage-summary.json');
-const metrics = ['lines', 'statements', 'functions', 'branches'] as const;
-const minimum = 80;
+const minimums = {
+  lines: 90,
+  statements: 90,
+  functions: 90,
+  branches: 85,
+} as const;
 
 function runVitest(): void {
   const result = spawnSync(
@@ -58,7 +62,7 @@ function assertCoverage(): void {
     string,
     { pct?: number }
   >;
-  for (const metric of metrics) {
+  for (const [metric, minimum] of Object.entries(minimums)) {
     const pct = total[metric]?.pct;
     if (typeof pct !== 'number' || pct < minimum) {
       console.error(`Coverage ${metric} ${pct ?? 'missing'}% is below ${minimum}%.`);
